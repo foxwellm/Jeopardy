@@ -6,6 +6,17 @@
   margin: auto;
 }
 
+.big-screen-question {
+  position: absolute;
+  background-color: blue;
+  z-index: 1;
+  width: 0;
+  height: 0;
+  top: 0px;
+  left: 0px;
+  transition: 1s;
+}
+
 .question-box-section {
   display: flex;
   width: 850px;
@@ -23,7 +34,5 @@
   position: absolute;
   width: 100%;
   height: 100%;
-  top: 0px;
-  left: 0px;
   transition: 1s;
 }
