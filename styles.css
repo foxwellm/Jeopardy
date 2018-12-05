@@ -1,0 +1,29 @@
+.question-box {
+  height: 100px;
+  width: 200px;
+  border-style: solid;
+  background-color: red;
+  margin: auto;
+}
+
+.question-box-section {
+  display: flex;
+  width: 850px;
+  justify-content: space-between;
+  position: relative;
+}
+
+.title-box {
+  display: flex;
+  justify-content: center;
+  font-size: 25px;
+}
+
+.ask-question {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  left: 0px;
+  transition: 1s;
+}
