@@ -11,3 +11,9 @@ tileContainer.addEventListener('click', askQuestion);
 function askQuestion() {
   bigScreen.classList.add('ask-question');
 }
+
+
+
+if (typeof module.exports !== undefined) {
+  module.exports = updateDOM.js
+}
