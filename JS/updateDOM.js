@@ -1,19 +1,28 @@
-const tileContainer = document.querySelector('.question-box-section');
-const bigScreen = document.querySelector('.big-screen-question');
+const questionBoxSection = document.querySelector('.question-box-section');
+const tileContainer = document.querySelectorAll('.tile-container');
+const bigScreen = document.querySelector('.big-screen');
+const closeBigScreenBtn = document.querySelector('.close-big-screen');
+
+questionBoxSection.addEventListener('click', askQuestion)
+closeBigScreenBtn.addEventListener('click', closeBigScreen)
 
 
-
-tileContainer.addEventListener('click', askQuestion);
-
-
-
+tileContainer.forEach(function (tile) {
+  tile.addEventListener('click', function () {
+    tile.firstElementChild.classList.add('ask-question');
+    tile.classList.add('tile-container-answer');
+    tile.classList.remove('tile-container-relative');
+  });
+});
 
 function askQuestion() {
   bigScreen.classList.add('ask-question');
 }
 
-
-
-if (typeof module.exports !== undefined) {
-  module.exports = updateDOM.js
+function closeBigScreen() {
+  bigScreen.classList.remove('ask-question');
 }
+
+// if (typeof module.exports !== undefined) {
+//   module.exports = updateDOM.js
+// }

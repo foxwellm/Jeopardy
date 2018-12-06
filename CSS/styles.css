@@ -1,38 +1,83 @@
-.question-box {
-  height: 100px;
-  width: 200px;
-  border-style: solid;
-  background-color: red;
-  margin: auto;
-}
-
-.big-screen-question {
-  position: absolute;
-  background-color: blue;
-  z-index: 1;
-  width: 0;
-  height: 0;
-  top: 0px;
-  left: 0px;
-  transition: 1s;
-}
-
-.question-box-section {
-  display: flex;
-  width: 850px;
-  justify-content: space-between;
-  position: relative;
+body {
+  display: grid;
+  grid-template-areas: 
+  'left-light title right-light'
+  'left-light game right-light'
+  'players players players';
+  grid-template-columns: 200px 850px 200px;
 }
 
 .title-box {
+  grid-area: title;
   display: flex;
   justify-content: center;
   font-size: 25px;
 }
 
+.left-light {
+  grid-area: left-light;
+}
+
+.right-light {
+  grid-area: right-light;
+}
+
+
+
+.question-box-section {
+  grid-area: game;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+
+.big-screen {
+  position: absolute;
+  top: 200px;
+  left: 400px;
+  width: 0;
+  height: 0;
+  transform-style: preserve-3d;
+  transition: all 1s ease;
+}
+
 .ask-question {
+  transform: rotateY(180deg);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.question-box {
+  height: 100px;
+  width: 200px;
+  border-style: solid;
+  margin: auto;
+}
+
+.players-area{
+  grid-area: players;
+}
+
+.big-screen-front { 
   position: absolute;
   width: 100%;
   height: 100%;
-  transition: 1s;
+  backface-visibility: hidden;
+  background: #fafafa;
+  color: #333;
+  
 }
+
+.big-screen-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  transform: rotateY(180deg);
+  background: red;
+  color: #333;
+  
+}
+
