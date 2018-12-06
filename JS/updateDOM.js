@@ -23,6 +23,18 @@ function closeBigScreen() {
   bigScreen.classList.remove('ask-question');
 }
 
+
+// presentQuestion(`${'CURRENT QUESTION'}`) {
+//   big-screen-back.innerText() displays question 
+    //  currentPlayerAnswerBox() fires and rises, showing answer input
+// }
+
+
+
+
+
+
+
 // if (typeof module.exports !== undefined) {
 //   module.exports = updateDOM.js
 // }
