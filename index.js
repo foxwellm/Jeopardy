@@ -6,5 +6,8 @@
 // verifyAnswer()
 
 
-questionBoxSection.addEventListener('click', getQuestion)
+// questionBoxSection.addEventListener('click', getQuestion)
 
+
+const game = new Game (gameQuestions);
+game.init();
