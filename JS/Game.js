@@ -1,6 +1,7 @@
 
 class Game {
-  constructor(round = 1, currentPlayer = 1, tilesLeft = 16, manipulatedQuestionObj = {}) {
+  constructor(manipulatedQuestionObj, round = 1, currentPlayer = 1, tilesLeft = 16) {
+    this.manipulatedQuestionObj = manipulatedQuestionObj;
     this.round = round;
     this.currentPlayer = currentPlayer;
     this.tilesLeft = tilesLeft;
@@ -9,18 +10,31 @@ class Game {
     this.round = 1;
     this.currentPlayer = 1;
     this.tilesLeft = 16;
-    setGameTiles();
+    this.setGameBoard(this.round);
   }
   changePlayer() {
     this.player
   }
 
 
-  setGameTiles(round) {
-  // This is where we iterate over our tiles to give them the dollar values.
+  setGameBoard(round) {
+    let questionBoxesPointArray = [];
+    //grab differentPointValues from manipulatedData instead when made
+    let differentPointValues = [100,200,300,400].reverse();
+    for(let i=0; i<4; i++) {  //size of categories
+      differentPointValues.forEach(pointValue => {
+        questionBoxesPointArray.push(pointValue*round);
+      })
+    }
+    populateGameBoard(questionBoxesPointArray);
   }
 
-  getQuestion() {
+  getQuestion(questionBoxIndex) {
+    // debugger
+   this.currentQuestion = this.manipulatedQuestionObj[`Round${this.round}Questions`][questionBoxIndex];
+    // debugger
+    return this.currentQuestion;
+
   // find question for tile based on round and manipulatedQuestionObj
   // send that data to updateDOM.
   // set recieved question's answer as this.currentAnswer
