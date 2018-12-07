@@ -6,5 +6,5 @@ Game.Init()
 // verifyAnswer()
 
 
-
+questionBoxSection.addEventListener('click', getQuestion)
 
