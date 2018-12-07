@@ -94,7 +94,9 @@ body {
   height: 100%;
   backface-visibility: hidden;
   transform: rotateY(180deg);
-  background: red;
+  background:slategray;
   color: #333;
+  color: whitesmoke;
+  font-size: 65px;
 }
 
