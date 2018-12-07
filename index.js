@@ -6,5 +6,5 @@
 // verifyAnswer()
 
 
-
+questionBoxSection.addEventListener('click', getQuestion)
 
