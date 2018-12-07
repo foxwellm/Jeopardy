@@ -38,7 +38,10 @@ function getFinalRoundQuestion(category) {
   return finalQuestion[0];
 }
 const gameQuestions = {
-  Round1: getRoundQuestions(arrayOfPotentialCategories.splice(-4)),
-  Round2: getRoundQuestions(arrayOfPotentialCategories.splice(-4)),
-  Round3: getFinalRoundQuestion(arrayOfPotentialCategories.splice(-1))
-}; 
+  Round1Categories: (arrayOfPotentialCategories.slice(-4)),
+  Round1Questions: getRoundQuestions(arrayOfPotentialCategories.splice(-4)),
+  Round2Categories: (arrayOfPotentialCategories.slice(-4)),
+  Round2Questions: getRoundQuestions(arrayOfPotentialCategories.splice(-4)),
+  Round3Category: (arrayOfPotentialCategories.slice(-1)),
+  Round3Question: getFinalRoundQuestion(arrayOfPotentialCategories.splice(-1))
+};
