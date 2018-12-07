@@ -3,9 +3,23 @@ body {
   display: grid;
   grid-template-areas: 
   'left-light title right-light'
+  'left-light categories-box right-light'
   'left-light game right-light'
   'players players players';
   grid-template-columns: 200px 1fr 200px;
+}
+
+.categories-container {
+  grid-area: categories-box;
+  display: flex;
+  justify-content: space-around;
+}
+
+.category-box {
+  background-color: slategray;
+  border-style: solid;
+  width:200px;
+  height: 50px;
 }
 
 .title-box {
@@ -50,9 +64,9 @@ body {
 }
 
 .question-box {
-  background-color: dimgrey;
-  height: 100px;
-  width: 200px;
+  background-color: slategray;
+  height: 75px;
+  width: 150px;
   border-style: solid;
   margin: 20px;
 }
@@ -71,8 +85,7 @@ body {
   backface-visibility: hidden;
   background: #fafafa;
   color: #333;
-  
-}
+  }
 
 .big-screen-back {
   position: absolute;
@@ -82,6 +95,5 @@ body {
   transform: rotateY(180deg);
   background: red;
   color: #333;
-  
 }
 

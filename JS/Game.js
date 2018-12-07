@@ -20,7 +20,7 @@ class Game {
   // This is where we iterate over our tiles to give them the dollar values.
   }
 
-  getQuestion() {
+  getRoundQuestions() {
   // find question for tile based on round and manipulatedQuestionObj
   // send that data to updateDOM.
   // set recieved question's answer as this.currentAnswer
