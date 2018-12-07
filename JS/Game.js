@@ -7,7 +7,7 @@ class Game {
     this.tilesLeft = tilesLeft;
   }
   init() {
-    this.round = 1;
+    this.round = 2;
     this.currentPlayer = 1;
     this.tilesLeft = 16;
     this.setGameBoard(this.round);
@@ -26,7 +26,10 @@ class Game {
         questionBoxesPointArray.push(pointValue*round);
       })
     }
-    populateGameBoard(questionBoxesPointArray);
+    const roundCategories = this.manipulatedQuestionObj[`Round${this.round}Categories`].map(category => {
+      return category.name
+    }).reverse();
+    populateGameBoard(roundCategories,questionBoxesPointArray);
   }
 
   getQuestion(questionBoxIndex) {
