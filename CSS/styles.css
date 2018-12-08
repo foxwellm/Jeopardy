@@ -81,6 +81,7 @@ body {
   justify-content: space-around;
   z-index: 3;
   position: relative;
+  margin-top: 163px;
 }
 
 .big-screen-front { 
@@ -113,9 +114,9 @@ body {
 
 .answer {
   width: 300px;
-  height: 200px;
+  height: 85px;
   position: relative;
-  background-color: white;
+  background-color: slategray;
   z-index: -11;
   transition: 1s;
   top: -40px;
@@ -123,12 +124,35 @@ body {
 
 .player1-text {
   resize: none;
-  height: 100px;
-  width: 280px;
+  height: 35px;
+  width: 190px;
+}
+
+.player2-text {
+  resize: none;
+  height: 35px;
+  width: 190px;
+}
+
+.player3-text {
+  resize: none;
+  height: 35px;
+  width: 190px;
 }
 
 .your-turn {
-  top: -200px;
+  top: -85px;
   transition: 1s;
 }
 
+.answer-1 {
+  margin: 0px;
+}
+
+.answer-2 {
+
+}
+
+.answer-3 {
+  
+}
