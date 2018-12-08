@@ -24,6 +24,25 @@ function populateGameBoard(questionBoxValues) {
   })
 }
 
+
+const p1Turn = document.querySelector('.p1');
+const p1End = document.querySelector('.p1E');
+const p1Answer = document.querySelector('.p1-answer');
+
+p1Turn.addEventListener('click', yourTurn);
+p1End.addEventListener('click', yourTurnEnd);
+
+function yourTurn() {
+ p1Answer.classList.add('your-turn');
+}
+function yourTurnEnd() {
+ p1Answer.classList.remove('your-turn');
+}
+
+
+
+
+
     //  currentPlayerAnswerBox() fires and rises, showing answer input
 
 
