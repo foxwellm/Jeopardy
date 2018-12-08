@@ -5,14 +5,19 @@ const closeBigScreenBtn = document.querySelector('.close-big-screen');
 const bigScreenBack = document.querySelector('.big-screen-back');
 closeBigScreenBtn.addEventListener('click', closeBigScreen)
 
-
+function createQuestionListeners() {
 questionBoxes.forEach(function (questionBox) {
   questionBox.addEventListener('click', function () {
-    let questionNow = game.getQuestion(event.target.dataset.questionid);
+    const questionNow = game.getQuestion(event.target.dataset.questionid);
     bigScreenBack.innerText = questionNow.question;
     bigScreen.classList.add('ask-question');
   });
 });
+}
+
+function createPlayerInputListeners() {
+  
+}
 
 //test function
 function closeBigScreen() {
