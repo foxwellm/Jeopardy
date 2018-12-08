@@ -16,7 +16,8 @@ class Question {
     // debugger
     if(playerGuess === this.currentAnswer) {
       game.rightAnswer();
+    }else {
+      game.wrongAnswer();
+        }
+      }   
   }
-}
-
-}

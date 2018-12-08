@@ -5,10 +5,11 @@ class Game {
     this.currentRound = currentRound;
     this.currentPlayer = currentPlayer;
     this.tilesLeft = tilesLeft;
+    this.peopleGone = 0;
   }
 
   init() {
-    this.currentRound = 2;
+    this.currentRound = 1;
     this.currentPlayer = 'player1';
     this.tilesLeft = 16;
     createQuestionBoxListeners();
@@ -36,17 +37,36 @@ class Game {
   }
 
   rightAnswer() {
-    
-    this.currentPlayer.score = 10;
+    const answeredPoints = currentQuestion.currentPointValue; 
+    const round = this.currentRound;
+    const pointsToAdd = (answeredPoints * round);
+    whosTurn();
+    if (this.currentPlayer === 'player1') {
+      player1.score += pointsToAdd;
+      closeBigScreen();
+      }else if (this.currentPlayer === 'player2') { player2.score += (currentQuestion.pointValue * this.currentRound)
+      } else { player3.score += (currentQuestion.pointValue * this.currentRound) 
+    }
   }
 
   wrongAnswer() {
-    // check if all players have gone,
-    // If so, disables the question and reverts to original player
-    // if not, change current player to next in line.
-  }
-
-
+      
+     
+      this.peopleGone++;
+    
+      if (this.currentPlayer === 'player1') {
+        this.currentPlayer = 'player2'
+      } else if (this.currentPlayer === 'player2') {
+        this.currentPlayer = 'player3'
+      } else {
+        this.currentPlayer = 'player1';
+          }
+      if (this.peopleGone > 2){
+        closeBigScreen();
+        this.peopleGone = 0;
+           } 
+       whosTurn();
+        }
 
 }
 

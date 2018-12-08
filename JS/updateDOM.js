@@ -1,52 +1,12 @@
+const updateDOM = {closeBigScreen}
 const questionBoxes = document.querySelectorAll('.question-box');
 const categoryBoxes = document.querySelectorAll('.category-box');
 const answerBtns = document.querySelectorAll('.answer-btn');
-
 const bigScreen = document.querySelector('.big-screen');
 const closeBigScreenBtn = document.querySelector('.close-big-screen');
 const bigScreenBack = document.querySelector('.big-screen-back');
+const answerBoxes = document.querySelectorAll('.answer');
 
-closeBigScreenBtn.addEventListener('click', closeBigScreen)
-
-function createQuestionBoxListeners() {
-  questionBoxes.forEach(function(eachQuestionBox) {
-    eachQuestionBox.addEventListener('click', askQuestion);
-  })
-}
-
-
-function askQuestion() {
-  currentQuestion = new Question(event.target.dataset.questionid, game.manipulatedQuestionObj, game.currentRound);
-  bigScreenBack.innerText = currentQuestion.currentQuestion;
-  bigScreen.classList.add('ask-question');
-  const boxToDisable = event.target.closest('.question-box');
-  setInterval(() => {
-    boxToDisable.innerText = '';
-  }, 1000);
-  boxToDisable.removeEventListener('click', askQuestion);
-}
-
-function createPlayerInputListeners() {
-  answerBtns.forEach(function(button) {
-    button.addEventListener('click', function() {
-      currentQuestion.verifyAnswer(event.target.previousElementSibling.value);
-    })
-  })
-}
-
-//test function
-function closeBigScreen() {
-  bigScreen.classList.remove('ask-question');
-}
-
-function populateGameBoard(roundCategories,questionBoxValues) {
-  categoryBoxes.forEach(categoryBox => {
-    categoryBox.innerText = roundCategories.splice(-1);
-  })
-  questionBoxes.forEach(questionBox => {
-    questionBox.innerText = questionBoxValues.splice(-1);
-  })
-}
 
 
 const p1Turn = document.querySelector('.p1');
@@ -65,6 +25,73 @@ p2Turn.addEventListener('click', yourTurn2);
 p2End.addEventListener('click', yourTurnEnd2);
 p3Turn.addEventListener('click', yourTurn3);
 p3End.addEventListener('click', yourTurnEnd3);
+closeBigScreenBtn.addEventListener('click', closeBigScreen)
+
+function createQuestionBoxListeners() {
+  questionBoxes.forEach(function(eachQuestionBox) {
+    eachQuestionBox.addEventListener('click', askQuestion);
+  })
+}
+
+function askQuestion() {
+  currentQuestion = new Question(event.target.dataset.questionid, game.manipulatedQuestionObj, game.currentRound);
+  bigScreenBack.innerText = currentQuestion.currentQuestion;
+  bigScreen.classList.add('ask-question');
+
+  whosTurn();
+
+  const boxToDisable = event.target.closest('.question-box');
+  setInterval(() => {
+    boxToDisable.innerText = '';
+  }, 1000);
+  boxToDisable.removeEventListener('click', askQuestion);
+}
+
+function createPlayerInputListeners() {
+  answerBtns.forEach(function(button) {
+    button.addEventListener('click', function() {
+      currentQuestion.verifyAnswer(event.target.previousElementSibling.value);
+    })
+  })
+}
+
+//test function
+function closeBigScreen() {
+  bigScreen.classList.remove('ask-question');
+  game.tilesLeft--;
+  checkTilesLeft();
+}
+
+function checkTilesLeft() {
+  if (game.tilesLeft === 0) {
+    game.tilesLeft = 16;
+    game.currentRound++;
+    }
+};
+
+function populateGameBoard(roundCategories,questionBoxValues) {
+  categoryBoxes.forEach(categoryBox => {
+    categoryBox.innerText = roundCategories.splice(-1);
+  })
+  questionBoxes.forEach(questionBox => {
+    questionBox.innerText = questionBoxValues.splice(-1);
+  })
+}
+
+function whosTurn() {
+    answerBoxes.forEach((answerBox) => {
+      answerBox.classList.remove('your-turn')
+    });
+  if (game.currentPlayer === 'player1') {
+    p1Answer.classList.add('your-turn')
+  } else if (game.currentPlayer === 'player2') {
+    p2Answer.classList.add('your-turn')
+  } else {
+    p3Answer.classList.add('your-turn')
+      }
+}
+
+
 
 
 
