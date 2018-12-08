@@ -10,6 +10,7 @@ class Game {
     this.round = 2;
     this.currentPlayer = 1;
     this.tilesLeft = 16;
+    createQuestionListeners();
     this.setGameBoard(this.round);
   }
   changePlayer() {
@@ -33,10 +34,9 @@ class Game {
   }
 
   getQuestion(questionBoxIndex) {
-    // debugger
-   this.currentQuestion = this.manipulatedQuestionObj[`Round${this.round}Questions`][questionBoxIndex];
-    // debugger
-    return this.currentQuestion;
+    const question = this.manipulatedQuestionObj[`Round${this.round}Questions`][questionBoxIndex];
+    const currentQuestion = new Question(question);
+    return currentQuestion;
 
   // find question for tile based on round and manipulatedQuestionObj
   // send that data to updateDOM.
