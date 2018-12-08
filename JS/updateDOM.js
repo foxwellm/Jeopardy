@@ -32,15 +32,39 @@ function populateGameBoard(roundCategories,questionBoxValues) {
 const p1Turn = document.querySelector('.p1');
 const p1End = document.querySelector('.p1E');
 const p1Answer = document.querySelector('.p1-answer');
+const p2Turn = document.querySelector('.p2');
+const p2End = document.querySelector('.p2E');
+const p2Answer = document.querySelector('.p2-answer');
+const p3Turn = document.querySelector('.p3');
+const p3End = document.querySelector('.p3E');
+const p3Answer = document.querySelector('.p3-answer');
 
-p1Turn.addEventListener('click', yourTurn);
-p1End.addEventListener('click', yourTurnEnd);
+p1Turn.addEventListener('click', yourTurn1);
+p1End.addEventListener('click', yourTurnEnd1);
+p2Turn.addEventListener('click', yourTurn2);
+p2End.addEventListener('click', yourTurnEnd2);
+p3Turn.addEventListener('click', yourTurn3);
+p3End.addEventListener('click', yourTurnEnd3);
 
-function yourTurn() {
+
+
+function yourTurn1() {
  p1Answer.classList.add('your-turn');
 }
-function yourTurnEnd() {
+function yourTurnEnd1() {
  p1Answer.classList.remove('your-turn');
+}
+function yourTurn2() {
+ p2Answer.classList.add('your-turn');
+}
+function yourTurnEnd2() {
+ p2Answer.classList.remove('your-turn');
+}
+function yourTurn3() {
+ p3Answer.classList.add('your-turn');
+}
+function yourTurnEnd3() {
+ p3Answer.classList.remove('your-turn');
 }
 
 
