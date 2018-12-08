@@ -1,55 +1,43 @@
 
 class Game {
-  constructor(manipulatedQuestionObj, round = 1, currentPlayer = 1, tilesLeft = 16) {
+  constructor(manipulatedQuestionObj, currentRound = 1, currentPlayer = 'player1', tilesLeft = 16) {
     this.manipulatedQuestionObj = manipulatedQuestionObj;
-    this.round = round;
+    this.currentRound = currentRound;
     this.currentPlayer = currentPlayer;
     this.tilesLeft = tilesLeft;
   }
+
   init() {
-    this.round = 2;
-    this.currentPlayer = 1;
+    this.currentRound = 2;
+    this.currentPlayer = 'player1';
     this.tilesLeft = 16;
-    createQuestionListeners();
-    this.setGameBoard(this.round);
+    createQuestionBoxListeners();
+    createPlayerInputListeners();
+    this.setGameBoard(this.currentRound);
   }
   changePlayer() {
     this.player
   }
 
 
-  setGameBoard(round) {
+  setGameBoard(currentRound) {
     let questionBoxesPointArray = [];
     //grab differentPointValues from manipulatedData instead when made
     let differentPointValues = [100,200,300,400].reverse();
     for(let i=0; i<4; i++) {  //size of categories
       differentPointValues.forEach(pointValue => {
-        questionBoxesPointArray.push(pointValue*round);
+        questionBoxesPointArray.push(pointValue*currentRound);
       })
     }
-    const roundCategories = this.manipulatedQuestionObj[`Round${this.round}Categories`].map(category => {
+    const roundCategories = this.manipulatedQuestionObj[`Round${this.currentRound}Categories`].map(category => {
       return category.name
     }).reverse();
     populateGameBoard(roundCategories,questionBoxesPointArray);
   }
 
-  getQuestion(questionBoxIndex) {
-    const question = this.manipulatedQuestionObj[`Round${this.round}Questions`][questionBoxIndex];
-    const currentQuestion = new Question(question);
-    return currentQuestion;
-
-  // find question for tile based on round and manipulatedQuestionObj
-  // send that data to updateDOM.
-  // set recieved question's answer as this.currentAnswer
-  }
-
-  verifyAnswer() {
-    // if this.currentAnswer === currentPlayerAnswer,
-    /* updateScore()
-    // if tilesLeft === 0, this.round++
-    // disable tile/change innertext
-    else - present false message and  wrongAnswer()
-    */
+  rightAnswer() {
+    
+    this.currentPlayer.score = 10;
   }
 
   wrongAnswer() {
