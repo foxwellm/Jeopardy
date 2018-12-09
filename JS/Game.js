@@ -64,10 +64,13 @@ class Game {
     whosTurn();
     if (this.currentPlayer === 'player1') {
       player1.score += pointsToAdd;
-      closeBigScreen();
-      }else if (this.currentPlayer === 'player2') { player2.score += (currentQuestion.pointValue * this.currentRound)
-      } else { player3.score += (currentQuestion.pointValue * this.currentRound) 
+      
+      } else if (this.currentPlayer === 'player2') { 
+        player2.score += pointsToAdd;
+      } else { 
+        player3.score += pointsToAdd;
     }
+    closeBigScreen();
     updatePlayerScore();
   }
 
