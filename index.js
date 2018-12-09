@@ -1,7 +1,14 @@
 
 
 // questionBoxSection.addEventListener('click', getQuestion)
+const startBtn = document.querySelector('.start-btn');
+const startScreen = document.querySelector('.start-screen');
+startBtn.addEventListener('click', startGame);
 
+
+function startGame() {
+  startScreen.classList.add('start-game')
+}
 
 const game = new Game (gameQuestions);
 const player1 = new Player ('Tom', true);

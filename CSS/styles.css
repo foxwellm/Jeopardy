@@ -50,6 +50,28 @@ body {
   position: relative;
 }
 
+.start-screen {
+  position: absolute;
+  top: -100px;
+  width: 800px;
+  height: 0px; /*500px; */
+  background-color: green;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: 1s;
+}
+
+.start-btn {
+  background-color: red;
+}
+
+.start-game {
+  height: 0px;
+  transition: 1s;
+}
+
 .big-screen {
   position: absolute;
   top: 200px;
