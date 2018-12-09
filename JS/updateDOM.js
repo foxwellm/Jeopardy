@@ -92,6 +92,24 @@ function whosTurn() {
       }
 }
 
+const p1Score = document.querySelector('.p1-score');
+const p2Score = document.querySelector('.p2-score');
+const p3Score = document.querySelector('.p3-score');
+function updatePlayerScore() {
+  p1Score.innerText = player1.score;
+  p2Score.innerText = player2.score;
+  p3Score.innerText = player3.score;
+}
+
+const p1Name = document.querySelector('.p1-name');
+const p2Name = document.querySelector('.p2-name');
+const p3Name = document.querySelector('.p3-name');
+
+function setPlayerNames() {
+  p1Name.innerText = player1.name;
+  p2Name.innerText = player2.name;
+  p3Name.innerText = player3.name;
+}
 
 // TESTING
 const p1Wager = document.querySelector('.p1-wager');

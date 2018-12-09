@@ -15,6 +15,8 @@ class Game {
     createQuestionBoxListeners();
     createPlayerInputListeners();
     this.setGameBoard();
+    setPlayerNames();
+    updatePlayerScore();
   }
   changePlayer() {
     this.player
@@ -66,6 +68,7 @@ class Game {
       }else if (this.currentPlayer === 'player2') { player2.score += (currentQuestion.pointValue * this.currentRound)
       } else { player3.score += (currentQuestion.pointValue * this.currentRound) 
     }
+    updatePlayerScore();
   }
 
   wrongAnswer() {

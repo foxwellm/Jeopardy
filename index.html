@@ -11,7 +11,7 @@
 <body>
   <div class="title-box">
     Tom and Matt's Jeopardy Extravaganza
-</div>
+  </div>
   <div class="categories-container">
     <div class="category-box category-1">1</div>
     <div class="category-box category-2">2</div>
@@ -21,8 +21,8 @@
   <section class="left-light">
     <button class="p1">Player 1 Turn</button>
     <button class="p1E">Player 1 End</button>
-        <button class="p1W">Player 1 Wager</button>
-        <button class="p1WE">Player 1 Wager End</button>
+    <button class="p1W">Player 1 Wager</button>
+    <button class="p1WE">Player 1 Wager End</button>
     <button class="p2">Player 2 Turn</button>
     <button class="p2E">Player 2 End</button>
     <button class="p3">Player 3 Turn</button>
@@ -41,14 +41,14 @@
         <input type="text" name="p1Text">
       </div>
       <div class="p-start-container">
-          <input type="radio" name="p2Human" value="human" checked="checked">
-          <input type="radio" name="p2Human" value="ai">
-          <input type="text" name="p2Text">
+        <input type="radio" name="p2Human" value="human" checked="checked">
+        <input type="radio" name="p2Human" value="ai">
+        <input type="text" name="p2Text">
       </div>
       <div class="p-start-container">
-          <input type="radio" name="p3Human" value="human" checked="checked">
-          <input type="radio" name="p3Human" value="ai">
-          <input type="text" name="p3Text">
+        <input type="radio" name="p3Human" value="human" checked="checked">
+        <input type="radio" name="p3Human" value="ai">
+        <input type="text" name="p3Text">
       </div>
       <div class="start-btn-container"> 
         <div class="start-btn">Start Game</div>
@@ -59,76 +59,66 @@
       <div class="big-screen-back"></div>
     </div>
     <div class="row1">
-      <div class="question-box question-box-0" data-questionID="0">
-      </div>
-      <div class="question-box question-box-1" data-questionID="1">
-      </div>
-      <div class="question-box question-box-2" data-questionID="2">
-      </div>
-      <div class="question-box question-box-3" data-questionID="3">
-      </div>  
+      <div class="question-box question-box-0" data-questionID="0"></div>
+      <div class="question-box question-box-1" data-questionID="1"></div>
+      <div class="question-box question-box-2" data-questionID="2"></div>
+      <div class="question-box question-box-3" data-questionID="3"></div>  
     </div>
     <div class="row2">
-      <div class="question-box question-box-4" data-questionID="4">
-      </div>
-      <div class="question-box question-box-5" data-questionID="5">  
-      </div>
-      <div class="question-box question-box-6" data-questionID="6">
-      </div>
-      <div class="question-box question-box-7" data-questionID="7">
-      </div>     
+      <div class="question-box question-box-4" data-questionID="4"></div>
+      <div class="question-box question-box-5" data-questionID="5"></div>
+      <div class="question-box question-box-6" data-questionID="6"></div>
+      <div class="question-box question-box-7" data-questionID="7"></div>     
     </div>
     <div class="row3">
-      <div class="question-box question-box-8" data-questionID="8">        
-      </div>
-      <div class="question-box question-box-9" data-questionID="9">       
-      </div>
-      <div class="question-box question-box-10" data-questionID="10">       
-      </div>
-      <div class="question-box question-box-11" data-questionID="11">        
-      </div>
+      <div class="question-box question-box-8" data-questionID="8"></div>
+      <div class="question-box question-box-9" data-questionID="9"></div>
+      <div class="question-box question-box-10" data-questionID="10"></div>
+      <div class="question-box question-box-11" data-questionID="11"></div>
     </div>
     <div class="row4">
-      <div class="question-box question-box-12" data-questionID="12">       
-      </div>
-      <div class="question-box question-box-13" data-questionID="13">       
-      </div>
-      <div class="question-box question-box-14" data-questionID="14">      
-      </div>
-      <div class="question-box question-box-15" data-questionID="15">      
-      </div>
+      <div class="question-box question-box-12" data-questionID="12"></div>
+      <div class="question-box question-box-13" data-questionID="13"></div>
+      <div class="question-box question-box-14" data-questionID="14"></div>
+      <div class="question-box question-box-15" data-questionID="15"></div>
     </div>
   </section>
   <section class="players-area">
     <div class="stand">
+      <div class="p-score p1-score">test</div>
+      <div class="p-name p1-name"></div>
       <div class="p1-answer answer">
         <textarea class="player-text-box player1-text" cols="20" rows="4"></textarea>
-          <div class="answer-btn answer-1">Answer</div>
+        <div class="answer-btn answer-1">Answer</div>
       </div>
-            <div class="p1-wager wager">
-              <input type="number" class="player1-wager-input">
-              <button class="answer-btn wager-1">Wager</button>
-            </div>
+      <div class="p1-wager wager">
+        <input type="number" class="player1-wager-input">
+        <button class="answer-btn wager-1">Wager</button>
+      </div>
     </div>
     <div class="stand">
+          <div class="p-score p2-score"></div>
+          <div class="p-name p2-name"></div>
       <div class="p2-answer answer">
         <textarea class="player-text-box player2-text" cols="20" rows="4"></textarea>
         <div class="answer-btn answer-2">Answer</div>
       </div>
-                <div class="p2-wager wager">
-                  <input type="number" class="player2-wager-input">
-                  <button class="answer-btn wager-2">Wager</button>
-                </div>
+      <div class="p2-wager wager">
+        <input type="number" class="player2-wager-input">
+        <button class="answer-btn wager-2">Wager</button>
+      </div>
     </div>
     <div class="stand">
+          <div class="p-score p3-score"></div>
+          <div class="p-name p3-name"></div>
       <div class="p3-answer answer">
         <textarea class="player-text-box player3-text" cols="20" rows="4"></textarea>
         <div class="answer-btn answer-3">Answer</div>
       </div>
-                <div class="p3-wager wager">
-                  <input type="number" class="player3-wager-input">
-                  <button class="answer-btn wager-3">Wager</button>
-                </div>
+      <div class="p3-wager wager">
+        <input type="number" class="player3-wager-input">
+        <button class="answer-btn wager-3">Wager</button>
+      </div>
     </div>
   </section>
   <script src="JS/gameData.js"></script>
