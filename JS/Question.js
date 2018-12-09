@@ -5,7 +5,7 @@ class Question {
     this.manipulatedQuestionObj = manipulatedQuestionObj;
 
     this.currentQuestionSet = this.manipulatedQuestionObj[`Round${this.currentRound}Questions`][questionBoxId];
-    
+
     this.currentQuestion = this.currentQuestionSet.question;
     this.currentAnswer = this.currentQuestionSet.answer;
     this.currentPointValue = this.currentQuestionSet.pointValue;

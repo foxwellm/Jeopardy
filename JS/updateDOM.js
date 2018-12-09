@@ -33,6 +33,11 @@ function createQuestionBoxListeners() {
   })
 }
 
+function bigScreenRound3() {
+  bigScreen.classList.add('ask-question');
+  bigScreen.classList.add('round-3-big-screen');
+}
+
 function askQuestion() {
   currentQuestion = new Question(event.target.dataset.questionid, game.manipulatedQuestionObj, game.currentRound);
   bigScreenBack.innerText = currentQuestion.currentQuestion;
@@ -59,15 +64,9 @@ function createPlayerInputListeners() {
 function closeBigScreen() {
   bigScreen.classList.remove('ask-question');
   game.tilesLeft--;
-  checkTilesLeft();
+  game.checkTilesLeft();
 }
 
-function checkTilesLeft() {
-  if (game.tilesLeft === 0) {
-    game.tilesLeft = 16;
-    game.currentRound++;
-    }
-};
 
 function populateGameBoard(roundCategories,questionBoxValues) {
   categoryBoxes.forEach(categoryBox => {

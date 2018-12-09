@@ -112,6 +112,11 @@ body {
   font-size: 65px;
 }
 
+.round-3-big-screen {
+  height: 109%;
+  margin-top: -56px;
+}
+
 .stand {
   width: 300px;
   height: 300px;

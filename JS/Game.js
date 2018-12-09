@@ -20,14 +20,35 @@ class Game {
     this.player
   }
 
+  checkTilesLeft() {
+    if (game.tilesLeft === 0) {
+      this.tilesLeft = 16;
+      this.currentRound++;
+      if (this.currentRound === 3) {
+        this.setRound3();
+      }else{
+      this.setGameBoard();
+      }
+    }
+  };
+  
+  // setRound3(){
+  //   debugger
+  //   r3Question = new Question(0, this.manipulatedQuestionObj, this.currentRound);
+  //   debugger
+  //   bigScreenBack.innerText = this.manipulatedQuestionObj.Round3Category.name;
+  //   bigScreenRound3();
+  // }
 
-  setGameBoard(currentRound) {
+
+
+  setGameBoard() {
     let questionBoxesPointArray = [];
     //grab differentPointValues from manipulatedData instead when made
     let differentPointValues = [100,200,300,400].reverse();
     for(let i=0; i<4; i++) {  //size of categories
       differentPointValues.forEach(pointValue => {
-        questionBoxesPointArray.push(pointValue*currentRound);
+        questionBoxesPointArray.push(pointValue*this.currentRound);
       })
     }
     const roundCategories = this.manipulatedQuestionObj[`Round${this.currentRound}Categories`].map(category => {
