@@ -48,9 +48,7 @@ function askQuestion() {
   whosTurn();
 
   const boxToDisable = event.target.closest('.question-box');
-  setInterval(() => {
-    boxToDisable.innerText = '';
-  }, 1000);
+  boxToDisable.innerText = '';
   boxToDisable.removeEventListener('click', askQuestion);
 }
 

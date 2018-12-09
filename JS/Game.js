@@ -14,7 +14,7 @@ class Game {
     this.tilesLeft = 16;
     createQuestionBoxListeners();
     createPlayerInputListeners();
-    this.setGameBoard(this.currentRound);
+    this.setGameBoard();
   }
   changePlayer() {
     this.player
