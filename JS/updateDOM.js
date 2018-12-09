@@ -55,7 +55,9 @@ function askQuestion() {
 function createPlayerInputListeners() {
   answerBtns.forEach(function(button) {
     button.addEventListener('click', function() {
-      currentQuestion.verifyAnswer(event.target.previousElementSibling.value);
+      const currentTextBox = event.target.previousElementSibling;
+      currentQuestion.verifyAnswer(currentTextBox.value);
+      currentTextBox.value = '';
     })
   })
 }
