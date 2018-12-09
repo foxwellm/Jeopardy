@@ -32,13 +32,11 @@ class Game {
     }
   };
   
-  // setRound3(){
-  //   debugger
-  //   r3Question = new Question(0, this.manipulatedQuestionObj, this.currentRound);
-  //   debugger
-  //   bigScreenBack.innerText = this.manipulatedQuestionObj.Round3Category.name;
-  //   bigScreenRound3();
-  // }
+  setRound3() {
+    currentQuestion = new Question(0, this.manipulatedQuestionObj, this.currentRound);
+    bigScreenBack.innerText = this.manipulatedQuestionObj.Round3Categories[0].name
+    bigScreenRound3();
+  }
 
 
 

@@ -124,14 +124,28 @@ body {
   position: relative;
 }
 
-.answer {
+.answer,
+.wager {
   width: 300px;
   height: 85px;
-  position: relative;
+  position: absolute;
   background-color: slategray;
-  z-index: -11;
+  z-index: -1;
   transition: 1s;
-  top: -40px;
+  top: 0px;
+}
+
+.answer-btn {
+  height: 40px;
+  width: 40px;
+  background-color: blue;
+  position: absolute;
+  bottom: 0;  
+  right: 0;
+}
+
+.answer-btn:hover {
+  background-color: red;
 }
 
 .player1-text {
@@ -162,14 +176,3 @@ body {
   transition: 1s;
 }
 
-.answer-1 {
-  margin: 0px;
-}
-
-.answer-2 {
-
-}
-
-.answer-3 {
-
-}

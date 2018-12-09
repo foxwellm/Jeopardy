@@ -19,6 +19,8 @@
   <section class="left-light">
     <button class="p1">Player 1 Turn</button>
     <button class="p1E">Player 1 End</button>
+        <button class="p1W">Player 1 Wager</button>
+        <button class="p1WE">Player 1 Wager End</button>
     <button class="p2">Player 2 Turn</button>
     <button class="p2E">Player 2 End</button>
     <button class="p3">Player 3 Turn</button>
@@ -76,20 +78,32 @@
     <div class="stand">
       <div class="p1-answer answer">
         <textarea class="player-text-box player1-text" cols="20" rows="4"></textarea>
-        <button class="answer-btn answer-1">Answer</button>
+          <div class="answer-btn answer-1">Answer</div>
       </div>
+            <div class="p1-wager wager">
+              <input type="number" class="player1-wager-input">
+              <button class="answer-btn wager-1">Wager</button>
+            </div>
     </div>
     <div class="stand">
       <div class="p2-answer answer">
-          <textarea class="player-text-box player2-text" cols="20" rows="4"></textarea>
-          <button class="answer-btn answer-2">Answer</button>
+        <textarea class="player-text-box player2-text" cols="20" rows="4"></textarea>
+        <div class="answer-btn answer-2">Answer</div>
       </div>
+                <div class="p2-wager wager">
+                  <input type="number" class="player2-wager-input">
+                  <button class="answer-btn wager-2">Wager</button>
+                </div>
     </div>
     <div class="stand">
       <div class="p3-answer answer">
-          <textarea class="player-text-box player3-text" cols="20" rows="4"></textarea>
-          <button class="answer-btn answer-3">Answer</button>
+        <textarea class="player-text-box player3-text" cols="20" rows="4"></textarea>
+        <div class="answer-btn answer-3">Answer</div>
       </div>
+                <div class="p3-wager wager">
+                  <input type="number" class="player3-wager-input">
+                  <button class="answer-btn wager-3">Wager</button>
+                </div>
     </div>
   </section>
   <script src="JS/gameData.js"></script>

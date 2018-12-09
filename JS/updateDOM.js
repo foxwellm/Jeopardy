@@ -19,6 +19,8 @@ const p3Turn = document.querySelector('.p3');
 const p3End = document.querySelector('.p3E');
 const p3Answer = document.querySelector('.p3-answer');
 
+
+
 p1Turn.addEventListener('click', yourTurn1);
 p1End.addEventListener('click', yourTurnEnd1);
 p2Turn.addEventListener('click', yourTurn2);
@@ -91,7 +93,19 @@ function whosTurn() {
 }
 
 
+// TESTING
+const p1Wager = document.querySelector('.p1-wager');
+const p1WagerStart = document.querySelector('.p1W');
+const p1WagerEnd = document.querySelector('.p1WE');
+p1WagerStart.addEventListener('click', wager1);
+p1WagerEnd.addEventListener('click', wagerEnd1);
 
+function wager1() {
+  p1Wager.classList.add('your-turn');
+}
+function wagerEnd1() {
+  p1Wager.classList.remove('your-turn');
+}
 
 
 function yourTurn1() {

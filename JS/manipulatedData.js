@@ -35,7 +35,7 @@ function getFinalRoundQuestion(category) {
     return clue.categoryId === category[0].id;
   })
   shuffleArray(finalQuestion);
-  return finalQuestion[0];
+  return [finalQuestion[0]];
 }
 const gameQuestions = {
   Round1Categories: (arrayOfPotentialCategories.slice(-4)),
