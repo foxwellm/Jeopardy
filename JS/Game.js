@@ -6,6 +6,8 @@ class Game {
     this.currentPlayer = currentPlayer;
     this.tilesLeft = tilesLeft;
     this.peopleGone = 0;
+    this.DDround1 = 0;
+    this.DDround2 = [0,0]
   }
 
   init() {
@@ -17,11 +19,31 @@ class Game {
     this.setGameBoard();
     setPlayerNames();
     updatePlayerScore();
+    this.createDD()
   }
   changePlayer() {
     this.player
   }
 
+  createDD() {
+    let DD = Math.floor(Math.random() * (15 - 1)) + 0;
+      this.DDround1 = DD;
+      DD = Math.floor(Math.random() * (15 - 1)) + 0;
+
+      this.DDround2[0] = DD;
+      this.createRandom();
+     
+  };
+  
+  createRandom() {
+    let DD2 = Math.floor(Math.random() * (15 - 1)) + 0;
+    if (DD2 === this.DDround2[0]){
+    this.createRandom();
+    } else {
+      this.DDround2[1] = DD2;
+    }
+  };
+  
   checkTilesLeft() {
     if (game.tilesLeft === 0) {
       this.tilesLeft = 16;
@@ -38,6 +60,9 @@ class Game {
     currentQuestion = new Question(0, this.manipulatedQuestionObj, this.currentRound);
     bigScreenBack.innerText = this.manipulatedQuestionObj.Round3Categories[0].name
     bigScreenRound3();
+    wager1();
+    wager2();
+    wager3();
   }
 
 
@@ -58,9 +83,7 @@ class Game {
   }
 
   rightAnswer() {
-    const answeredPoints = currentQuestion.currentPointValue; 
-    const round = this.currentRound;
-    const pointsToAdd = (answeredPoints * round);
+    const pointsToAdd = (currentQuestion.currentPointValue * this.currentRound);
     whosTurn();
     if (this.currentPlayer === 'player1') {
       player1.score += pointsToAdd;
@@ -76,14 +99,17 @@ class Game {
 
   wrongAnswer() {
       
-     
+      const pointsToAdd = (currentQuestion.currentPointValue * this.currentRound);
       this.peopleGone++;
     
       if (this.currentPlayer === 'player1') {
+        player1.score -= pointsToAdd;
         this.currentPlayer = 'player2'
       } else if (this.currentPlayer === 'player2') {
+        player2.score -= pointsToAdd;
         this.currentPlayer = 'player3'
       } else {
+        player3.score -= pointsToAdd;
         this.currentPlayer = 'player1';
           }
       if (this.peopleGone > 2){
@@ -91,6 +117,7 @@ class Game {
         this.peopleGone = 0;
            } 
        whosTurn();
+       updatePlayerScore();
         }
 
 }

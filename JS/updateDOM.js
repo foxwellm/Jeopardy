@@ -113,6 +113,8 @@ function setPlayerNames() {
 
 // TESTING
 const p1Wager = document.querySelector('.p1-wager');
+const p2Wager = document.querySelector('.p2-wager');
+const p3Wager = document.querySelector('.p3-wager');
 const p1WagerStart = document.querySelector('.p1W');
 const p1WagerEnd = document.querySelector('.p1WE');
 p1WagerStart.addEventListener('click', wager1);
@@ -121,26 +123,47 @@ p1WagerEnd.addEventListener('click', wagerEnd1);
 function wager1() {
   p1Wager.classList.add('your-turn');
 }
+
+function wager2() {
+  p2Wager.classList.add('your-turn');
+}
+
+function wager3() {
+  p3Wager.classList.add('your-turn');
+}
+
 function wagerEnd1() {
   p1Wager.classList.remove('your-turn');
 }
 
+function wagerEnd2() {
+  p2Wager.classList.remove('your-turn');
+}
+
+function wagerEnd3() {
+  p3Wager.classList.remove('your-turn');
+}
 
 function yourTurn1() {
   p1Answer.classList.add('your-turn');
 }
+
 function yourTurnEnd1() {
   p1Answer.classList.remove('your-turn');
 }
+
 function yourTurn2() {
   p2Answer.classList.add('your-turn');
 }
+
 function yourTurnEnd2() {
   p2Answer.classList.remove('your-turn');
 }
+
 function yourTurn3() {
   p3Answer.classList.add('your-turn');
 }
+
 function yourTurnEnd3() {
   p3Answer.classList.remove('your-turn');
 }

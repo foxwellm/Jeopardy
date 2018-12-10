@@ -20,4 +20,4 @@ class Question {
       game.wrongAnswer();
         }
       }   
-  }
+  } 
