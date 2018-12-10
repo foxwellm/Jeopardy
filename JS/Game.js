@@ -82,8 +82,8 @@ class Game {
     populateGameBoard(roundCategories,questionBoxesPointArray);
   }
 
-  rightAnswer() {
-    const pointsToAdd = (currentQuestion.currentPointValue * this.currentRound);
+  rightAnswer(wager) {
+    const pointsToAdd = wager || (currentQuestion.currentPointValue * this.currentRound);
     whosTurn();
     if (this.currentPlayer === 'player1') {
       player1.score += pointsToAdd;
@@ -97,9 +97,9 @@ class Game {
     updatePlayerScore();
   }
 
-  wrongAnswer() {
-      
-      const pointsToAdd = (currentQuestion.currentPointValue * this.currentRound);
+  wrongAnswer(wager) {
+      debugger
+      const pointsToAdd = wager || (currentQuestion.currentPointValue * this.currentRound);
       this.peopleGone++;
     
       if (this.currentPlayer === 'player1') {

@@ -40,12 +40,61 @@ function bigScreenRound3() {
   bigScreen.classList.add('round-3-big-screen');
 }
 
-function askQuestion() {
-  currentQuestion = new Question(event.target.dataset.questionid, game.manipulatedQuestionObj, game.currentRound);
-  bigScreenBack.innerText = currentQuestion.currentQuestion;
-  bigScreen.classList.add('ask-question');
+const wager1button = document.querySelector('.wager-1');
+const wager2button = document.querySelector('.wager-2');
+const wager3button = document.querySelector('.wager-3');
 
-  whosTurn();
+function DDOperations() {
+  wagerEnd1();
+    wagerEnd2();
+    wagerEnd3();
+    p1Answer.classList.remove('your-turn');
+    p2Answer.classList.remove('your-turn');
+    p3Answer.classList.remove('your-turn');
+    if (game.currentPlayer === 'player1') {
+      p1Answer.classList.add('your-turn')
+    } else if (game.currentPlayer === 'player2') {
+      p2Answer.classList.add('your-turn')
+    } else {
+      p3Answer.classList.add('your-turn')
+        };
+    
+    bigScreen.classList.remove('ask-question');
+    bigScreenBack.innerText = currentDailyDouble.currentQuestion;
+    bigScreen.classList.add('ask-question');
+    debugger;
+}
+
+function askQuestion(event) {
+  let currentQuestionID = event.target.dataset.questionid;
+  if (game.currentRound === 1 && (currentQuestionID == game.DDround1)) {
+    currentDailyDouble = new DailyDouble(event.target.dataset.questionid, game.manipulatedQuestionObj, game.currentRound,game.currentPlayer);
+    bigScreenBack.innerText = currentDailyDouble.currentCategory;
+    bigScreen.classList.add('ask-question');
+    wager1button.addEventListener('click', function() {
+      currentDailyDouble.collectWager(); 
+    });
+    wager2button.addEventListener('click', function() {
+      currentDailyDouble.collectWager(); 
+    });
+    wager3button.addEventListener('click', function() {
+      currentDailyDouble.collectWager(); 
+    });
+
+  if (currentDailyDouble.currentPlayer === 'player1') {
+    wager1();
+  } else if (currentDailyDouble.currentPlayer === 'player2'){
+    wager2();
+  } else {
+    wager3();
+  } 
+
+  }else {
+    currentQuestion = new Question(event.target.dataset.questionid, game.manipulatedQuestionObj, game.currentRound);
+    bigScreenBack.innerText = currentQuestion.currentQuestion;
+    bigScreen.classList.add('ask-question');
+    whosTurn();
+  }
 
   const boxToDisable = event.target.closest('.question-box');
   boxToDisable.innerText = '';
@@ -56,8 +105,16 @@ function createPlayerInputListeners() {
   answerBtns.forEach(function(button) {
     button.addEventListener('click', function() {
       const currentTextBox = event.target.previousElementSibling;
-      currentQuestion.verifyAnswer(currentTextBox.value);
+     
+      if (!currentDailyDouble) {
+        currentQuestion.verifyAnswer(currentTextBox.value);
+        currentTextBox.value = '';
+        
+      }else {
+      currentDailyDouble.verifyAnswer(currentTextBox.value);
       currentTextBox.value = '';
+      currentDailyDouble = false;
+      }
     })
   })
 }

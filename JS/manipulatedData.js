@@ -17,6 +17,7 @@ function shuffleArray(array) {
 }
 //shuffle all categories
 shuffleArray(arrayOfPotentialCategories);
+
 function getRoundQuestions(categories) {
   roundQuestions = categories.reduce((array, category) => {
     [100, 200, 300, 400].forEach(pointValue => {
