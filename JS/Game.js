@@ -20,10 +20,9 @@ class Game {
     setPlayerNames();
     updatePlayerScore();
     this.createDD()
+    whosTurn()
   }
-  changePlayer() {
-    this.player
-  }
+
 
   createDD() {
     let DD = Math.floor(Math.random() * (15 - 1)) + 0;
@@ -83,11 +82,11 @@ class Game {
   }
 
   rightAnswer(wager) {
-    const pointsToAdd = wager || (currentQuestion.currentPointValue * this.currentRound);
+    this.peopleGone = 0;
+    const pointsToAdd = parseInt(wager) || (currentQuestion.currentPointValue * this.currentRound);
     whosTurn();
     if (this.currentPlayer === 'player1') {
       player1.score += pointsToAdd;
-      
       } else if (this.currentPlayer === 'player2') { 
         player2.score += pointsToAdd;
       } else { 
@@ -98,7 +97,6 @@ class Game {
   }
 
   wrongAnswer(wager) {
-      debugger
       const pointsToAdd = wager || (currentQuestion.currentPointValue * this.currentRound);
       this.peopleGone++;
     
@@ -109,8 +107,9 @@ class Game {
         player2.score -= pointsToAdd;
         this.currentPlayer = 'player3'
       } else {
+        debugger
         player3.score -= pointsToAdd;
-        this.currentPlayer = 'player1';
+        this.currentPlayer = 'player1'
           }
       if (this.peopleGone > 2){
         closeBigScreen();
