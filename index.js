@@ -1,17 +1,14 @@
-
-
-// questionBoxSection.addEventListener('click', getQuestion)
 const startBtn = document.querySelector('.start-btn');
 const startScreen = document.querySelector('.start-screen');
 const p1Radio = document.querySelectorAll('.p1radio'); 
-startBtn.addEventListener('click', startGame);
-
-// let player1;
-// let player2;
-// let player3;
-
-let currentQuestion; //better way to initialize this?
+let player1;
+let player2;
+let player3;
+let game;
+let currentQuestion;
 let currentDailyDouble;
+
+startBtn.addEventListener('click', startGame);
 
 function startGame() {
   startScreen.classList.add('start-game');
@@ -24,6 +21,6 @@ function startGame() {
   player1 = new Player(p1Human, p1Name);
   player2 = new Player(p2Human, p2Name);
   player3 = new Player(p3Human, p3Name);
-  const game = new Game(gameQuestions);
+  game = new Game(gameQuestions);
   game.init();
 }
