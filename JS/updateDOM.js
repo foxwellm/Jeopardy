@@ -21,24 +21,15 @@ function playerDisplayBox(type, direction, ...boxes) {
 function DDOperations() {
   playerDisplayBox('wager','down', 1,2,3);
   playerDisplayBox('answer','down', 1,2,3);
-  
-  if (game.currentPlayer === 'player1') {
-    playerDisplayBox('answer', 'up', 1);
-  } else if (game.currentPlayer === 'player2') {
-    playerDisplayBox('answer', 'up', 2);
-  } else {
-    playerDisplayBox('answer', 'up', 3);
-  };
+  playerDisplayBox('answer', 'up', game.currentPlayer.slice(-1));
   closeBigScreen();
-  bigScreenAskQuestion(currentDailyDouble.currentQuestion)
+  bigScreenAskQuestion(currentDailyDouble.currentQuestion);
 }
 
 function bigScreenAskQuestion(asking) {
   document.querySelector('.big-screen-back').innerText = asking;
   document.querySelector('.big-screen').classList.add('ask-question');
 }
-
-
 
 function createWagerBtnInputListeners() {
   const wagerBtns = document.querySelectorAll('.wager-btn');
@@ -55,14 +46,7 @@ function askQuestion(event) {
     currentDailyDouble = new DailyDouble(event.target.dataset.questionid, game.manipulatedQuestionObj, game.currentRound,game.currentPlayer);
     bigScreenAskQuestion(currentDailyDouble.currentCategory)
     createWagerBtnInputListeners();
- 
-    if (currentDailyDouble.currentPlayer === 'player1') {
-      playerDisplayBox('wager', 'up', 1);
-    } else if (currentDailyDouble.currentPlayer === 'player2'){
-      playerDisplayBox('wager', 'up', 2);
-    } else {
-      playerDisplayBox('wager', 'up', 3);
-    } 
+    playerDisplayBox('wager', 'up', game.currentPlayer.slice(-1));
   } else {
     currentQuestion = new Question(event.target.dataset.questionid, game.manipulatedQuestionObj, game.currentRound);
     bigScreenAskQuestion(currentQuestion.currentQuestion);
@@ -78,13 +62,11 @@ function createPlayerInputListeners() {
   const answerBtns = document.querySelectorAll('.answer-btn');
   answerBtns.forEach(function(button) {
     button.addEventListener('click', function() {
-      const currentTextBox = event.target.previousElementSibling;
-      
+      const currentTextBox = event.target.previousElementSibling; 
       if (!currentDailyDouble) {
         currentQuestion.verifyAnswer(currentTextBox.value);
-        currentTextBox.value = '';
-        
-      }else {
+        currentTextBox.value = '';       
+      } else {
         currentDailyDouble.verifyAnswer(currentTextBox.value);
         currentTextBox.value = '';
         currentDailyDouble = false;
@@ -93,13 +75,11 @@ function createPlayerInputListeners() {
   })
 }
 
-//test function
 function closeBigScreen() {
   document.querySelector('.big-screen').classList.remove('ask-question');
 }
 
-
-function populateGameBoard(roundCategories,questionBoxValues) {
+function populateGameBoard(roundCategories, questionBoxValues) {
   const categoryBoxes = document.querySelectorAll('.category-box');
   const questionBoxes = document.querySelectorAll('.question-box');
   categoryBoxes.forEach(categoryBox => {
@@ -115,33 +95,20 @@ function whosTurn() {
   answerBoxes.forEach((answerBox) => {
     answerBox.classList.remove('your-turn')
   });
-  if (game.currentPlayer === 'player1') {
-    playerDisplayBox('answer', 'up', 1);
-  } else if (game.currentPlayer === 'player2') {
-    playerDisplayBox('answer', 'up', 2);
-  } else {
-    playerDisplayBox('answer', 'up', 3);
-  }
+  playerDisplayBox('answer', 'up', game.currentPlayer.slice(-1));
 }
 
-const p1Score = document.querySelector('.p1-score');
-const p2Score = document.querySelector('.p2-score');
-const p3Score = document.querySelector('.p3-score');
 
 function updatePlayerScore() {
-  p1Score.innerText = player1.score;
-  p2Score.innerText = player2.score;
-  p3Score.innerText = player3.score;
+  document.querySelector('.p1-score').innerText = player1.score;
+  document.querySelector('.p2-score').innerText = player2.score;
+  document.querySelector('.p3-score').innerText = player3.score;
 }
 
-const p1Name = document.querySelector('.p1-name');
-const p2Name = document.querySelector('.p2-name');
-const p3Name = document.querySelector('.p3-name');
-
 function setPlayerNames() {
-  p1Name.innerText = player1.name;
-  p2Name.innerText = player2.name;
-  p3Name.innerText = player3.name;
+  document.querySelector('.p1-name').innerText = player1.name;
+  document.querySelector('.p2-name').innerText = player2.name;
+  document.querySelector('.p3-name').innerText = player3.name;
 };
 
 // function bigScreenRound3() {
