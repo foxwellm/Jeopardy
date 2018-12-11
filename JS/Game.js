@@ -54,6 +54,7 @@ class Game {
   };
   
   checkTilesLeft() {
+    this.tilesLeft--;
     if (game.tilesLeft === 0) {
       this.tilesLeft = 16;
       this.currentRound++;
@@ -77,6 +78,7 @@ class Game {
         player3.score += pointsToAdd;
     }
     closeBigScreen();
+    this.checkTilesLeft();
     updatePlayerScore();
   };
 
@@ -91,12 +93,13 @@ class Game {
         player2.score -= pointsToAdd;
         this.currentPlayer = 'player3'
       } else {
-        debugger
+    
         player3.score -= pointsToAdd;
         this.currentPlayer = 'player1'
           }
       if (this.peopleGone > 2){
         closeBigScreen();
+        this.checkTilesLeft();
         this.peopleGone = 0;
            } 
        whosTurn();
@@ -108,9 +111,7 @@ class Game {
     currentQuestion = new Question(0, this.manipulatedQuestionObj, this.currentRound);
     bigScreenBack.innerText = this.manipulatedQuestionObj.Round3Categories[0].name;
     bigScreenRound3();
-    wager1();
-    wager2();
-    wager3();
+    playerDisplayBox('wager', 'up', 1, 2, 3);
   };
 
 };
