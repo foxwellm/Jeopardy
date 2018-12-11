@@ -6,9 +6,6 @@ const bigScreen = document.querySelector('.big-screen');
 const closeBigScreenBtn = document.querySelector('.close-big-screen');
 const bigScreenBack = document.querySelector('.big-screen-back');
 const answerBoxes = document.querySelectorAll('.answer');
-const p1Answer = document.querySelector('.p1-answer');
-const p2Answer = document.querySelector('.p2-answer');
-const p3Answer = document.querySelector('.p3-answer');
 
 
 // Delete these test buttons before deployment
@@ -39,25 +36,38 @@ const wager1button = document.querySelector('.wager-1');
 const wager2button = document.querySelector('.wager-2');
 const wager3button = document.querySelector('.wager-3');
 
+function closeAnswerBox() {
+  let boxes = [...arguments]
+  boxes.forEach((box) => {
+    document.querySelector(`.p${box}-answer`).classList.remove('your-turn');
+  })
+};
+
+function openAnswerBox() {
+  let boxes = [...arguments]
+  boxes.forEach((box) => {
+    document.querySelector(`.p${box}-answer`).classList.add('your-turn');
+  })
+};
+
+
 function DDOperations() {
-  wagerEnd1();
+    wagerEnd1();
     wagerEnd2();
     wagerEnd3();
-    p1Answer.classList.remove('your-turn');
-    p2Answer.classList.remove('your-turn');
-    p3Answer.classList.remove('your-turn');
+    closeAnswerBox(1,2,3)
+
     if (game.currentPlayer === 'player1') {
-      p1Answer.classList.add('your-turn')
+      openAnswerBox(1);
     } else if (game.currentPlayer === 'player2') {
-      p2Answer.classList.add('your-turn')
+      openAnswerBox(2);
     } else {
-      p3Answer.classList.add('your-turn')
+      openAnswerBox(3);
         };
     
     bigScreen.classList.remove('ask-question');
     bigScreenBack.innerText = currentDailyDouble.currentQuestion;
     bigScreen.classList.add('ask-question');
-    debugger;
 }
 
 function askQuestion(event) {
@@ -136,11 +146,11 @@ function whosTurn() {
       answerBox.classList.remove('your-turn')
     });
   if (game.currentPlayer === 'player1') {
-    p1Answer.classList.add('your-turn')
+    openAnswerBox(1);
   } else if (game.currentPlayer === 'player2') {
-    p2Answer.classList.add('your-turn')
+    openAnswerBox(2);
   } else {
-    p3Answer.classList.add('your-turn')
+    openAnswerBox(3);
       }
 }
 

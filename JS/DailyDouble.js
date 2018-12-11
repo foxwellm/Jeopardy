@@ -21,12 +21,10 @@ class DailyDouble {
 
   collectWager() {
     this.currentWager = event.target.previousSibling.previousSibling.value;
-    debugger
     DDOperations();
   }
 
   verifyAnswer(playerGuess) {
-    debugger
     if(playerGuess === this.currentAnswer) {
       game.rightAnswer(this.currentWager);
     }else {

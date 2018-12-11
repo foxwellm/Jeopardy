@@ -1,19 +1,16 @@
 
 class Game {
-  constructor(manipulatedQuestionObj, currentRound = 1, currentPlayer = 'player1', tilesLeft = 16) {
+  constructor(manipulatedQuestionObj) {
     this.manipulatedQuestionObj = manipulatedQuestionObj;
-    this.currentRound = currentRound;
-    this.currentPlayer = currentPlayer;
-    this.tilesLeft = tilesLeft;
+    this.currentRound = 1;
+    this.currentPlayer = 'player1';
+    this.tilesLeft = 16;
     this.peopleGone = 0;
     this.DDround1 = 0;
     this.DDround2 = [0,0]
   }
 
   init() {
-    this.currentRound = 1;
-    this.currentPlayer = 'player1';
-    this.tilesLeft = 16;
     createQuestionBoxListeners();
     createPlayerInputListeners();
     this.setGameBoard();
@@ -104,11 +101,12 @@ class Game {
            } 
        whosTurn();
        updatePlayerScore();
+      
   };
 
   setRound3() {
     currentQuestion = new Question(0, this.manipulatedQuestionObj, this.currentRound);
-    bigScreenBack.innerText = this.manipulatedQuestionObj.Round3Categories[0].name
+    bigScreenBack.innerText = this.manipulatedQuestionObj.Round3Categories[0].name;
     bigScreenRound3();
     wager1();
     wager2();
