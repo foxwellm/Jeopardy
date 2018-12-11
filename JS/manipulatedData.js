@@ -12,6 +12,17 @@ function shuffleArray(array) {
   }
 };
 
+function removeCamelCase(arrayOfPotentialCategories) {
+  arrayOfPotentialCategories.forEach(category => {
+   let text = category.name 
+   let result = text.replace( /([A-Z])/g, " $1" );
+   category.name = result.charAt(0).toUpperCase() + result.slice(1);
+  })
+  return arrayOfPotentialCategories;
+}
+
+removeCamelCase(arrayOfPotentialCategories)
+
 shuffleArray(arrayOfPotentialCategories);
 
 function getRoundQuestions(categories) {

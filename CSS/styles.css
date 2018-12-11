@@ -1,3 +1,7 @@
+/* Formatted with BEM */
+
+/* Block */
+
 body {
   background-image: url("images/background.jpg");
   display: grid;
@@ -9,30 +13,38 @@ body {
   grid-template-columns: 200px 1fr 200px;
 }
 
+/* Elements */
+
 .categories-container {
-  grid-area: categories-box;
   display: flex;
+  grid-area: categories-box;
   justify-content: space-between;
 }
 
 .category-box {
-  background-color: slategray;
-  border-style: solid;
-  width: 150px;
-  height: 50px;
-  margin: 20px 20px 0px 20px;
-  display: flex;
-  justify-content: center;
   align-items: center;
+  background-color: cornflowerblue;
+  border-color: slateblue;
+  border-radius: 5%;
+  border-style: solid;
+  border-width: 5px;
+  color: white;
+  display: flex;
+  height: 50px;
+  font-family: 'Heebo', sans-serif;
+  justify-content: center;
+  margin: 20px 20px 0px 20px;
+  width: 150px;
 }
 
 .title-box {
-  grid-area: title;
-  display: flex;
-  justify-content: center;
-  font-size: 50px;
   color: whitesmoke;
+  display: flex;
+  font-family: 'Permanent Marker', cursive;
+  font-size: 50px;
+  grid-area: title;
   height: 67px;
+  justify-content: center;
 }
 
 .left-light {
@@ -40,42 +52,48 @@ body {
 }
 
 .right-light {
+  color: whitesmoke;
+  display: flex;
+  font-family: 'Permanent Marker', cursive;
+  font-size: 50px;
   grid-area: right-light;
+  height: 67px;
+  justify-content: center;
 }
 
 .question-box-section {
-  grid-area: game;
   display: flex;
+  grid-area: game;
   justify-content: space-between;
   position: relative;
 }
 
 .start-screen {
-  position: absolute;
-  top: -100px;
-  width: 300px;
-  height: 300px;
+  align-items: center;
   background-color: darkslateblue;
-  z-index: 10;
+  border-radius: 5%;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
-  transition: 1s;
+  height: 300px;
   justify-content: center;
-  align-items: center;
-  border-radius: 5%;
-  margin: 120px 0px 20px 364px;
+  margin: 132px 0px 20px 603px;
+  overflow: hidden;
+  position: absolute;
+  top: -100px;
+  transition: 1s;
+  width: 300px;
+  z-index: 10;
 }
 
 .start-btn {
-  background-color: seagreen;
-  margin: 20px;
-  height: 60px;
-  width: 100px;
-  display: flex;
-  justify-content: center;
   align-items: center;
+  background-color: seagreen;
   border-radius: 5%;
+  display: flex;
+  height: 60px;
+  justify-content: center;
+  margin: 20px;
+  width: 100px;
 }
 
 .start-game {
@@ -84,65 +102,74 @@ body {
 }
 
 .big-screen {
+  height: 0;
+  left: 400px;
   position: absolute;
   top: 200px;
-  left: 400px;
-  width: 0;
-  height: 0;
   transform-style: preserve-3d;
-  transition: all 1s ease;
+  transition: all 2s ease;
+  width: 0;
 }
 
 .ask-question {
-  transform: rotateY(180deg);
-  top: 0;
-  left: 0;
-  width: 100%;
   height: 100%;
+  left: 0;
+  top: 0;
+  transform: rotateY(180deg);
+  width: 100%;
 }
 
 .question-box {
-  background-color: slategray;
-  height: 75px;
-  width: 150px;
-  border-style: solid;
-  margin: 20px;
-  display: flex;
   align-items: center;
+  background-color: cornflowerblue;
+  border-style: solid;
+  border-color: slateblue;
+  border-width: 5px;
+  border-radius: 5%;
+  color: white;
+  display: flex;
+  font-family: lobster;
+  height: 75px;
   justify-content: center;
+  margin: 20px;
+  width: 150px;
 }
 
 .players-area{
-  grid-area: players;
-  height: 300px;
-  width: 100%;
   background-color: darkslateblue;
   display: flex;
+  grid-area: players;
+  height: 300px;
   justify-content: space-around;
-  z-index: 3;
-  position: relative;
   margin-top: 163px;
+  position: relative;
+  width: 100%;
+  z-index: 3;
 }
 
 .big-screen-front { 
+  background-image: url("images/background.jpg");
+  backface-visibility: hidden;
+  color: #333;
+  height: 100%;
   position: absolute;
   width: 100%;
-  height: 100%;
-  backface-visibility: hidden;
-  background: #fafafa;
-  color: #333;
   }
 
 .big-screen-back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
+  align-items: center;
   backface-visibility: hidden;
-  transform: rotateY(180deg);
-  background:slategray;
-  color: #333;
+  background-image: url("images/purple.jpg");
   color: whitesmoke;
+  display: flex;
+  font-family: 'Noto Sans', sans-serif;
   font-size: 65px;
+  height: 100%;
+  justify-content: center;
+  overflow: hidden;
+  position: absolute;
+  transform: rotateY(180deg);
+  width: 100%;
 }
 
 .round-3-big-screen {
@@ -151,74 +178,75 @@ body {
 }
 
 .stand {
-  width: 300px;
-  height: 300px;
   background-color: slateblue;
+  height: 300px;
   position: relative;
+  width: 300px;
 }
 
 
 .p-score {
-  display: flex;
-  justify-content: center;
   color: white;
+  display: flex;
   font-size: 39px;
+  justify-content: center;
 }
 
 .p-name {
   color: white;
   display: flex;
+  font-family: 'Lobster', cursive;
+  font-size: 50px;
   justify-content: center;
-  font-size: 25px;
 }
 
 .answer,
 .wager {
-  width: 300px;
+  background-color: #e722b2;
   height: 85px;
   position: absolute;
-  background-color: slategray;
-  z-index: -1;
-  transition: 1s;
   top: 0px;
+  transition: 1s;
+  width: 300px;
+  z-index: -1;
 }
 
 .answer-btn {
-    height: 40px;
-    width: 103px;
-    background-color: seagreen;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  align-items: center;
+  background-color: seagreen;
+  bottom: 0;
+  display: flex;
+  height: 40px;
+  justify-content: center;
+  position: absolute;
+  right: 0;
+  width: 103px;
 }
 
 .answer-btn:hover {
-  background-color: red;
+  background-color: chartreuse;
 }
 
 .player1-text {
+  height: 46px;
+  margin-top: 45px;
   resize: none;
-  height: 35px;
-  width: 190px;
-  margin-top: 46px;
+  width: 191px;
 }
 
 .player2-text {
-  resize: none;
   height: 35px;
-  width: 190px;
-  margin-top: 46px;
+  margin-top: 45px;
+  resize: none;
+  width: 191px;
 
 }
 
 .player3-text {
-  resize: none;
   height: 35px;
-  width: 190px;
-  margin-top: 46px;
+  margin-top: 45px;
+  resize: none;
+  width: 191px;
 
 }
 
@@ -231,3 +259,30 @@ body {
   margin-right: 15px;
 }
 
+.start-header-container {
+  color: white;
+  font-size: 25px;
+  margin: 6px;
+}
+
+.radio-button {
+  display: none;
+}
+
+.name-input-field {
+  margin: 5px 5px 5px 19px;
+} 
+
+.hide {
+  display: none;
+}
+
+/* Modifiers */
+
+.start-btn:hover {
+  background-color: chartreuse;
+}
+
+.answer-btn:hover {
+  background-color: chartreuse;
+}
