@@ -6,21 +6,18 @@ const bigScreen = document.querySelector('.big-screen');
 const closeBigScreenBtn = document.querySelector('.close-big-screen');
 const bigScreenBack = document.querySelector('.big-screen-back');
 const answerBoxes = document.querySelectorAll('.answer');
-
-
-
-const p1Turn = document.querySelector('.p1');
-const p1End = document.querySelector('.p1E');
 const p1Answer = document.querySelector('.p1-answer');
-const p2Turn = document.querySelector('.p2');
-const p2End = document.querySelector('.p2E');
 const p2Answer = document.querySelector('.p2-answer');
-const p3Turn = document.querySelector('.p3');
-const p3End = document.querySelector('.p3E');
 const p3Answer = document.querySelector('.p3-answer');
 
 
-
+// Delete these test buttons before deployment
+const p1Turn = document.querySelector('.p1');
+const p1End = document.querySelector('.p1E');
+const p2Turn = document.querySelector('.p2');
+const p2End = document.querySelector('.p2E');
+const p3Turn = document.querySelector('.p3');
+const p3End = document.querySelector('.p3E');
 p1Turn.addEventListener('click', yourTurn1);
 p1End.addEventListener('click', yourTurnEnd1);
 p2Turn.addEventListener('click', yourTurn2);
@@ -29,16 +26,14 @@ p3Turn.addEventListener('click', yourTurn3);
 p3End.addEventListener('click', yourTurnEnd3);
 closeBigScreenBtn.addEventListener('click', closeBigScreen)
 
+// stop deleting 
 function createQuestionBoxListeners() {
   questionBoxes.forEach(function(eachQuestionBox) {
     eachQuestionBox.addEventListener('click', askQuestion);
   })
 }
 
-function bigScreenRound3() {
-  bigScreen.classList.add('ask-question');
-  bigScreen.classList.add('round-3-big-screen');
-}
+
 
 const wager1button = document.querySelector('.wager-1');
 const wager2button = document.querySelector('.wager-2');
@@ -166,7 +161,12 @@ function setPlayerNames() {
   p1Name.innerText = player1.name;
   p2Name.innerText = player2.name;
   p3Name.innerText = player3.name;
-}
+};
+
+function bigScreenRound3() {
+  bigScreen.classList.add('ask-question');
+  bigScreen.classList.add('round-3-big-screen');
+};
 
 // TESTING
 const p1Wager = document.querySelector('.p1-wager');

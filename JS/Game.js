@@ -21,8 +21,22 @@ class Game {
     updatePlayerScore();
     this.createDD()
     whosTurn()
-  }
+  };
 
+  setGameBoard() {
+    let questionBoxesPointArray = [];
+    //grab differentPointValues from manipulatedData instead when made
+    let differentPointValues = [100,200,300,400].reverse();
+    for(let i=0; i<4; i++) {  //size of categories
+      differentPointValues.forEach(pointValue => {
+        questionBoxesPointArray.push(pointValue*this.currentRound);
+      })
+    };
+    const roundCategories = this.manipulatedQuestionObj[`Round${this.currentRound}Categories`].map(category => {
+      return category.name
+    }).reverse();
+    populateGameBoard(roundCategories,questionBoxesPointArray);
+  };
 
   createDD() {
     let DD = Math.floor(Math.random() * (15 - 1)) + 0;
@@ -31,7 +45,6 @@ class Game {
 
       this.DDround2[0] = DD;
       this.createRandom();
-     
   };
   
   createRandom() {
@@ -55,32 +68,6 @@ class Game {
     }
   };
   
-  setRound3() {
-    currentQuestion = new Question(0, this.manipulatedQuestionObj, this.currentRound);
-    bigScreenBack.innerText = this.manipulatedQuestionObj.Round3Categories[0].name
-    bigScreenRound3();
-    wager1();
-    wager2();
-    wager3();
-  }
-
-
-
-  setGameBoard() {
-    let questionBoxesPointArray = [];
-    //grab differentPointValues from manipulatedData instead when made
-    let differentPointValues = [100,200,300,400].reverse();
-    for(let i=0; i<4; i++) {  //size of categories
-      differentPointValues.forEach(pointValue => {
-        questionBoxesPointArray.push(pointValue*this.currentRound);
-      })
-    }
-    const roundCategories = this.manipulatedQuestionObj[`Round${this.currentRound}Categories`].map(category => {
-      return category.name
-    }).reverse();
-    populateGameBoard(roundCategories,questionBoxesPointArray);
-  }
-
   rightAnswer(wager) {
     this.peopleGone = 0;
     const pointsToAdd = parseInt(wager) || (currentQuestion.currentPointValue * this.currentRound);
@@ -94,7 +81,7 @@ class Game {
     }
     closeBigScreen();
     updatePlayerScore();
-  }
+  };
 
   wrongAnswer(wager) {
       const pointsToAdd = wager || (currentQuestion.currentPointValue * this.currentRound);
@@ -117,9 +104,18 @@ class Game {
            } 
        whosTurn();
        updatePlayerScore();
-        }
+  };
 
-}
+  setRound3() {
+    currentQuestion = new Question(0, this.manipulatedQuestionObj, this.currentRound);
+    bigScreenBack.innerText = this.manipulatedQuestionObj.Round3Categories[0].name
+    bigScreenRound3();
+    wager1();
+    wager2();
+    wager3();
+  };
+
+};
 
 
 

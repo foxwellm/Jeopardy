@@ -537,8 +537,8 @@ const data = {
       categoryId: 3
     },
     {
-      question: '(<a href="http://www.j-archive.com/media/2005-12-21_J_25.jpg" target="_blank">Hi!  I\'m CNN senior medical correspondent Dr. Sanjay Gupta.</a>)  I joined CNN in 2001 & reported on the biological attacks of this bacillus in the news that October',
-      answer: 'anthrax',
+      question: 'What is Matt\'s favorite color?',
+      answer: 'slate gray',
       pointValue: 300,
       categoryId: 3
     },
@@ -573,8 +573,8 @@ const data = {
       categoryId: 2
     },
     {
-      question: '(<a href="http://www.j-archive.com/media/2009-04-28_DJ_22.wmv">Jimmy of the Clue Crew gets in his workout.</a>)  Physical activity increases both body temperature & this process in which food is converted to protein, carbs & fat & then used for energy',
-      answer: 'metabolism',
+      question: 'What is Tom\'s favorite color?',
+      answer: 'slate gray',
       pointValue: 400,
       categoryId: 2
     },

@@ -4,9 +4,4 @@ class Player {
     this.human = human;
     this.score = score;
   }
-
-  /* updateScore(pointsToAdd) {
-    this.score += pointsToAdd
-   }
-*/
 }
