@@ -13,7 +13,6 @@ class Question {
   }
 
   verifyAnswer(playerGuess) {
-    // debugger
     if(playerGuess === this.currentAnswer) {
       game.rightAnswer();
     }else {

@@ -9,7 +9,7 @@ class Game {
     this.DDround1 = 0;
     this.DDround2 = [0,0]
   }
-
+  
   init() {
     createQuestionBoxListeners();
     createPlayerInputListeners();
@@ -19,12 +19,11 @@ class Game {
     this.createDD()
     whosTurn()
   };
-
+  
   setGameBoard() {
     let questionBoxesPointArray = [];
-    //grab differentPointValues from manipulatedData instead when made
     let differentPointValues = [100,200,300,400].reverse();
-    for(let i=0; i<4; i++) {  //size of categories
+    for(let i=0; i<4; i++) {  
       differentPointValues.forEach(pointValue => {
         questionBoxesPointArray.push(pointValue*this.currentRound);
       })
@@ -34,20 +33,19 @@ class Game {
     }).reverse();
     populateGameBoard(roundCategories,questionBoxesPointArray);
   };
-
+  
   createDD() {
     let DD = Math.floor(Math.random() * (15 - 1)) + 0;
-      this.DDround1 = DD;
-      DD = Math.floor(Math.random() * (15 - 1)) + 0;
-
-      this.DDround2[0] = DD;
-      this.createRandom();
+    this.DDround1 = DD;
+    DD = Math.floor(Math.random() * (15 - 1)) + 0;
+    this.DDround2[0] = DD;
+    this.createRandom();
   };
   
   createRandom() {
     let DD2 = Math.floor(Math.random() * (15 - 1)) + 0;
     if (DD2 === this.DDround2[0]){
-    this.createRandom();
+      this.createRandom();
     } else {
       this.DDround2[1] = DD2;
     }
@@ -61,7 +59,7 @@ class Game {
       if (this.currentRound === 3) {
         this.setRound3();
       }else{
-      this.setGameBoard();
+        this.setGameBoard();
       }
     }
   };
@@ -72,48 +70,46 @@ class Game {
     whosTurn();
     if (this.currentPlayer === 'player1') {
       player1.score += pointsToAdd;
-      } else if (this.currentPlayer === 'player2') { 
-        player2.score += pointsToAdd;
-      } else { 
-        player3.score += pointsToAdd;
+    } else if (this.currentPlayer === 'player2') { 
+      player2.score += pointsToAdd;
+    } else { 
+      player3.score += pointsToAdd;
     }
     closeBigScreen();
     this.checkTilesLeft();
     updatePlayerScore();
   };
-
+  
   wrongAnswer(wager) {
-      const pointsToAdd = wager || (currentQuestion.currentPointValue * this.currentRound);
-      this.peopleGone++;
+    const pointsToAdd = wager || (currentQuestion.currentPointValue * this.currentRound);
+    this.peopleGone++;
     
-      if (this.currentPlayer === 'player1') {
-        player1.score -= pointsToAdd;
-        this.currentPlayer = 'player2'
-      } else if (this.currentPlayer === 'player2') {
-        player2.score -= pointsToAdd;
-        this.currentPlayer = 'player3'
-      } else {
-    
-        player3.score -= pointsToAdd;
-        this.currentPlayer = 'player1'
-          }
-      if (this.peopleGone > 2){
-        closeBigScreen();
-        this.checkTilesLeft();
-        this.peopleGone = 0;
-           } 
-       whosTurn();
-       updatePlayerScore();
-      
+    if (this.currentPlayer === 'player1') {
+      player1.score -= pointsToAdd;
+      this.currentPlayer = 'player2'
+    } else if (this.currentPlayer === 'player2') {
+      player2.score -= pointsToAdd;
+      this.currentPlayer = 'player3'
+    } else {
+      player3.score -= pointsToAdd;
+      this.currentPlayer = 'player1'
+    }
+    if (this.peopleGone > 2){
+      closeBigScreen();
+      this.checkTilesLeft();
+      this.peopleGone = 0;
+    } 
+    whosTurn();
+    updatePlayerScore();  
   };
-
+  
   setRound3() {
     currentQuestion = new Question(0, this.manipulatedQuestionObj, this.currentRound);
     bigScreenBack.innerText = this.manipulatedQuestionObj.Round3Categories[0].name;
     bigScreenRound3();
     playerDisplayBox('wager', 'up', 1, 2, 3);
   };
-
+  
 };
 
 
