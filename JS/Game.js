@@ -82,23 +82,23 @@ class Game {
   
   wrongAnswer(wager) {
     const pointsToAdd = wager || (currentQuestion.currentPointValue * this.currentRound);
-    this.peopleGone++;
-    
+    if(!wager) this.peopleGone++;
     if (this.currentPlayer === 'player1') {
       player1.score -= pointsToAdd;
-      this.currentPlayer = 'player2'
+      this.currentPlayer = 'player2';
     } else if (this.currentPlayer === 'player2') {
       player2.score -= pointsToAdd;
-      this.currentPlayer = 'player3'
+      this.currentPlayer = 'player3';
     } else {
       player3.score -= pointsToAdd;
-      this.currentPlayer = 'player1'
+      this.currentPlayer = 'player1';
     }
     if (this.peopleGone > 2){
       closeBigScreen();
       this.checkTilesLeft();
       this.peopleGone = 0;
     } 
+    if(wager) closeBigScreen();
     whosTurn();
     updatePlayerScore();  
   };
