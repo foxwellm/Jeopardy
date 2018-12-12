@@ -52,8 +52,8 @@ function createWagerBtnInputListeners() {
 function askQuestion(event) {
   let currentQuestionID = event.target.dataset.questionid;
   if (game.currentRound === 1 && (currentQuestionID == game.DDround1)) {
-    currentDailyDouble = new DailyDouble(event.target.dataset.questionid, game.manipulatedQuestionObj, game.currentRound, game.currentPlayer);
-    bigScreenAskQuestion(currentDailyDouble.currentCategory)
+    currentDailyDouble = new DailyDouble(event.target.dataset.questionid, game.manipulatedQuestionObj, game.currentRound,game.currentPlayer);
+    bigScreenAskQuestion(currentDailyDouble.currentCategory.name)
     createWagerBtnInputListeners();
     playerDisplayBox('wager', 'up', game.currentPlayer.slice(-1));
   } else {

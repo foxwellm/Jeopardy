@@ -1,15 +1,12 @@
-class DailyDouble {
-  constructor(questionBoxId, manipulatedQuestionObj, currentRound, currentPlayer, currentCategory) {
+
+class DailyDouble extends Question {
+  constructor(questionBoxId, manipulatedQuestionObj, currentRound, currentPlayer) {
+    super(questionBoxId, manipulatedQuestionObj, currentRound)
+
     this.currentPlayer = currentPlayer;
-    this.currentCategory = 'Happy';
-    this.currentRound = currentRound;
-    this.questionBoxId = questionBoxId;
-    this.manipulatedQuestionObj = manipulatedQuestionObj;
-    this.currentQuestionSet = this.manipulatedQuestionObj[`Round${this.currentRound}Questions`][questionBoxId];
-    this.currentQuestion = this.currentQuestionSet.question;
-    this.currentAnswer = this.currentQuestionSet.answer;
-    this.currentPointValue = this.currentQuestionSet.pointValue;
-    this.currentCategoryId = this.currentQuestionSet.categoryId;
+    this.currentCategory = manipulatedQuestionObj["Round1Categories"].find(category => {
+      return category.id === this.currentCategoryId
+    })
     this.isDDRunning = true;
     this.currentWager = 0;
   }
@@ -22,11 +19,3 @@ class DailyDouble {
       round3Operations();
     }
   }
-  verifyAnswer(playerGuess) {
-    if (playerGuess === this.currentAnswer) {
-      game.rightAnswer(this.currentWager);
-    } else {
-      game.wrongAnswer(this.currentWager);
-    }
-  }
-}
