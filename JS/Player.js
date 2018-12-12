@@ -4,6 +4,12 @@ class Player {
     this.human = human;
     this.score = score;
 
-    //updatePlayerScore
   }
+      updatePlayerScore(pointsToAdd) {
+        this.score += pointsToAdd
+  }
+}
+
+if (typeof module.exports !== 'undefined') {
+  module.exports = Player;
 }

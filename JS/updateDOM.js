@@ -1,7 +1,5 @@
-const updateDOM = {closeBigScreen}
-
 function closeStartMenu() {
-  document.querySelector('.start-screen').startScreen.classList.add('start-game');
+  document.querySelector('.start-screen').classList.add('start-game');
 }
 
 function createQuestionBoxListeners() {
@@ -34,7 +32,7 @@ function setPlayerNames() {
   document.querySelector('.p3-name').innerText = player3.name;
 }
 
-function updatePlayerScore() {
+function updateDomPlayerScore() {
   document.querySelector('.p1-score').innerText = player1.score;
   document.querySelector('.p2-score').innerText = player2.score;
   document.querySelector('.p3-score').innerText = player3.score;
@@ -225,6 +223,6 @@ function closeBigScreenTest() {
 
 
 
-// if (typeof module.exports !== undefined) {
-//   module.exports = updateDOM.js
-// }
+if (typeof module.exports !== 'undefined') {
+  module.exports = updateDOM;
+}

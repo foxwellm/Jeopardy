@@ -15,7 +15,7 @@ class Game {
     createPlayerInputListeners();
     this.setGameBoard();
     setPlayerNames();
-    updatePlayerScore();
+    updateDomPlayerScore();
     this.createDD()
     whosTurn();
     updateRoundCounter();
@@ -57,28 +57,28 @@ class Game {
     const pointsToAdd = parseInt(wager) || (currentQuestion.currentPointValue * this.currentRound);
     whosTurn();
     if (this.currentPlayer === 'player1') {
-      player1.score += pointsToAdd;
+      player1.updatePlayerScore(pointsToAdd);
     } else if (this.currentPlayer === 'player2') { 
-      player2.score += pointsToAdd;
+      player2.updatePlayerScore(pointsToAdd);
     } else { 
-      player3.score += pointsToAdd;
+      player3.updatePlayerScore(pointsToAdd);
     }
     closeBigScreen();
     this.checkTilesLeft();
-    updatePlayerScore();
+    updateDomPlayerScore();
   };
   
   wrongAnswer(wager) {
-    const pointsToAdd = wager || (currentQuestion.currentPointValue * this.currentRound);
+    const pointsToAdd = -(wager || (currentQuestion.currentPointValue * this.currentRound));
     if(!wager) this.peopleGone++;
     if (this.currentPlayer === 'player1') {
-      player1.score -= pointsToAdd;
+      player1.updatePlayerScore(pointsToAdd);;
       this.currentPlayer = 'player2';
     } else if (this.currentPlayer === 'player2') {
-      player2.score -= pointsToAdd;
+      player2.updatePlayerScore(pointsToAdd);;
       this.currentPlayer = 'player3';
     } else {
-      player3.score -= pointsToAdd;
+      player3.updatePlayerScore(pointsToAdd);;
       this.currentPlayer = 'player1';
     }
     if (this.peopleGone > 2){
@@ -88,7 +88,7 @@ class Game {
     } 
     if(wager) closeBigScreen();
     whosTurn();
-    updatePlayerScore();  
+    updateDomPlayerScore();  
   };
 
   checkTilesLeft() {
@@ -122,6 +122,6 @@ class Game {
 
 
 
-// if(typeof module.exports !== undefined) {
-//   module.exports = Game
-// }
+if(typeof module.exports !== 'undefined') {
+  module.exports = Game
+}

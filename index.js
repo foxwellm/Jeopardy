@@ -1,3 +1,9 @@
+const indexMethods = {
+  startGame
+}
+
+
+
 const startBtn = document.querySelector('.start-btn');
 const p1Radio = document.querySelectorAll('.p1radio'); 
 let player1;
@@ -22,4 +28,8 @@ function startGame() {
   player3 = new Player(p3Human, p3Name);
   game = new Game(gameQuestions);
   game.init();
+}
+
+if (typeof module !== 'undefined') {
+  module.exports = indexMethods;
 }
