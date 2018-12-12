@@ -21,9 +21,12 @@ class DailyDouble {
 
   collectWager() {
     this.currentWager = event.target.previousSibling.previousSibling.value;
-    DDOperations();
+    if (game.currentRound !== 3) {
+     DDOperations();
+    }else {
+      round3Operations();
+    }
   }
-
   verifyAnswer(playerGuess) {
     if(playerGuess === this.currentAnswer) {
       game.rightAnswer(this.currentWager);
