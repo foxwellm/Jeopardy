@@ -10,10 +10,11 @@ class Question {
     this.currentAnswer = this.currentQuestionSet.answer;
     this.currentPointValue = this.currentQuestionSet.pointValue;
     this.currentCategoryId = this.currentQuestionSet.categoryId; //probably don't need
+    
   }
 
   verifyAnswer(playerGuess) {
-    const currentDDWager = currentDailyDouble.currentWager || undefined;
+    const currentDDWager = (this.currentWager || undefined);
     if(playerGuess === this.currentAnswer) {
       game.rightAnswer(currentDDWager);
     }else {

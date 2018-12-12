@@ -19,3 +19,4 @@ class DailyDouble extends Question {
       round3Operations();
     }
   }
+}
