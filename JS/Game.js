@@ -4,7 +4,7 @@ class Game {
     this.manipulatedQuestionObj = manipulatedQuestionObj;
     this.currentRound = 1;
     this.currentPlayer = 'player1';
-    this.tilesLeft = 1;
+    this.tilesLeft = 16;
     this.peopleGone = 0;
     this.DDround1 = 0;
     this.DDround2 = [0,0]
@@ -55,7 +55,7 @@ class Game {
   checkTilesLeft() {
     this.tilesLeft--;
     if (game.tilesLeft === 0) {
-      this.tilesLeft = 1;
+      this.tilesLeft = 16;
       this.currentRound++;
       updateRoundCounter();
       if (this.currentRound === 3) {
