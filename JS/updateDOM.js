@@ -5,31 +5,31 @@ function createQuestionBoxListeners() {
   questionBoxes.forEach(function(eachQuestionBox) {
     eachQuestionBox.addEventListener('click', askQuestion);
   })
-};
+}
 
 function playerDisplayBox(type, direction, ...boxes) {
   let whichBoxes = [...boxes];
   whichBoxes.forEach((box) => {
-    if(direction === 'down') {
+    if (direction === 'down') {
       document.querySelector(`.p${box}-${type}`).classList.remove('your-turn');
     } else {
       document.querySelector(`.p${box}-${type}`).classList.add('your-turn');
     }
   })
-};
+}
 
 function DDOperations() {
-  playerDisplayBox('wager','down', 1,2,3);
-  playerDisplayBox('answer','down', 1,2,3);
+  playerDisplayBox('wager', 'down', 1, 2, 3);
+  playerDisplayBox('answer', 'down', 1, 2, 3);
   playerDisplayBox('answer', 'up', game.currentPlayer.slice(-1));
   closeBigScreen();
   bigScreenAskQuestion(currentDailyDouble.currentQuestion);
 }
 
 function round3Operations() {
-  playerDisplayBox('wager','down', 1,2,3);
-  playerDisplayBox('answer','down', 1,2,3);
-  playerDisplayBox('answer', 'up', 1,2,3);
+  playerDisplayBox('wager', 'down', 1, 2, 3);
+  playerDisplayBox('answer', 'down', 1, 2, 3);
+  playerDisplayBox('answer', 'up', 1, 2, 3);
   closeBigScreen();
   bigScreenAskQuestion(currentDailyDouble.currentQuestion);
 
@@ -122,14 +122,14 @@ function setPlayerNames() {
   document.querySelector('.p1-name').innerText = player1.name;
   document.querySelector('.p2-name').innerText = player2.name;
   document.querySelector('.p3-name').innerText = player3.name;
-};
+}
 
 function bigScreenRound3() {
   document.querySelector('.big-screen').classList.add('ask-question');
   document.querySelector('.big-screen').classList.add('round-3-big-screen');
-  currentDailyDouble = new DailyDouble(0, game.manipulatedQuestionObj, game.currentRound,game.currentPlayer);
+  currentDailyDouble = new DailyDouble(0, game.manipulatedQuestionObj, game.currentRound, game.currentPlayer);
   createWagerBtnInputListeners();
-};
+}
 
 // TESTING
 
