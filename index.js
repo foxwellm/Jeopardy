@@ -11,6 +11,7 @@ let currentDailyDouble;
 startBtn.addEventListener('click', startGame);
 
 function startGame() {
+  //updateDom.getPlayerNames()
   startScreen.classList.add('start-game');
   const p1Name = document.querySelector('input[name="p1Name"]').value;
   const p2Name = document.querySelector('input[name="p2Name"]').value;
