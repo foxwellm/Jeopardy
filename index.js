@@ -1,5 +1,4 @@
 const startBtn = document.querySelector('.start-btn');
-const startScreen = document.querySelector('.start-screen');
 const p1Radio = document.querySelectorAll('.p1radio'); 
 let player1;
 let player2;
@@ -11,8 +10,7 @@ let currentDailyDouble;
 startBtn.addEventListener('click', startGame);
 
 function startGame() {
-  //updateDom.getPlayerNames()
-  startScreen.classList.add('start-game');
+  closeStartMenu();  
   const p1Name = document.querySelector('input[name="p1Name"]').value;
   const p2Name = document.querySelector('input[name="p2Name"]').value;
   const p3Name = document.querySelector('input[name="p3Name"]').value;

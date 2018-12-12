@@ -1,10 +1,73 @@
 const updateDOM = {closeBigScreen}
 
+function closeStartMenu() {
+  document.querySelector('.start-screen').startScreen.classList.add('start-game');
+}
+
 function createQuestionBoxListeners() {
   const questionBoxes = document.querySelectorAll('.question-box');
   questionBoxes.forEach(function(eachQuestionBox) {
     eachQuestionBox.addEventListener('click', askQuestion);
   })
+}
+
+function createPlayerInputListeners() {
+  const answerBtns = document.querySelectorAll('.answer-btn');
+  answerBtns.forEach(function (button) {
+    button.addEventListener('click', function () {
+      const currentTextBox = event.target.previousElementSibling;
+      if (!currentDailyDouble) {
+        currentQuestion.verifyAnswer(currentTextBox.value);
+        currentTextBox.value = '';
+      } else {
+        currentDailyDouble.verifyAnswer(currentTextBox.value);
+        currentTextBox.value = '';
+        currentDailyDouble = false;
+      }
+    })
+  })
+}
+
+function setPlayerNames() {
+  document.querySelector('.p1-name').innerText = player1.name;
+  document.querySelector('.p2-name').innerText = player2.name;
+  document.querySelector('.p3-name').innerText = player3.name;
+}
+
+function updatePlayerScore() {
+  document.querySelector('.p1-score').innerText = player1.score;
+  document.querySelector('.p2-score').innerText = player2.score;
+  document.querySelector('.p3-score').innerText = player3.score;
+}
+
+function whosTurn() {
+  const answerBoxes = document.querySelectorAll('.answer');
+  answerBoxes.forEach((answerBox) => {
+    answerBox.classList.remove('your-turn')
+  });
+  playerDisplayBox('answer', 'up', game.currentPlayer.slice(-1));
+}
+
+function updateRoundCounter() {
+  let roundCounter = document.querySelector('.right-light');
+  roundCounter.innerText = `Round ${game.currentRound}`;
+}
+
+function askQuestion(event) {
+  let currentQuestionID = event.target.dataset.questionid;
+  if (game.currentRound === 1 && (currentQuestionID == game.DDround1)) {
+    currentDailyDouble = new DailyDouble(event.target.dataset.questionid, game.manipulatedQuestionObj, game.currentRound, game.currentPlayer);
+    bigScreenAskQuestion(currentDailyDouble.currentCategory.name)
+    createWagerBtnInputListeners();
+    playerDisplayBox('wager', 'up', game.currentPlayer.slice(-1));
+  } else {
+    currentQuestion = new Question(event.target.dataset.questionid, game.manipulatedQuestionObj, game.currentRound);
+    bigScreenAskQuestion(currentQuestion.currentQuestion);
+    whosTurn();
+  }
+  const boxToDisable = event.target.closest('.question-box');
+  boxToDisable.innerText = '';
+  boxToDisable.removeEventListener('click', askQuestion);
 }
 
 function playerDisplayBox(type, direction, ...boxes) {
@@ -49,41 +112,6 @@ function createWagerBtnInputListeners() {
   })
 }
 
-function askQuestion(event) {
-  let currentQuestionID = event.target.dataset.questionid;
-  if (game.currentRound === 1 && (currentQuestionID == game.DDround1)) {
-    currentDailyDouble = new DailyDouble(event.target.dataset.questionid, game.manipulatedQuestionObj, game.currentRound,game.currentPlayer);
-    bigScreenAskQuestion(currentDailyDouble.currentCategory.name)
-    createWagerBtnInputListeners();
-    playerDisplayBox('wager', 'up', game.currentPlayer.slice(-1));
-  } else {
-    currentQuestion = new Question(event.target.dataset.questionid, game.manipulatedQuestionObj, game.currentRound);
-    bigScreenAskQuestion(currentQuestion.currentQuestion);
-    whosTurn();
-  }
-  
-  const boxToDisable = event.target.closest('.question-box');
-  boxToDisable.innerText = '';
-  boxToDisable.removeEventListener('click', askQuestion);
-}
-
-function createPlayerInputListeners() {
-  const answerBtns = document.querySelectorAll('.answer-btn');
-  answerBtns.forEach(function(button) {
-    button.addEventListener('click', function() {
-      const currentTextBox = event.target.previousElementSibling; 
-      if (!currentDailyDouble) {
-        currentQuestion.verifyAnswer(currentTextBox.value);
-        currentTextBox.value = '';       
-      } else {
-        currentDailyDouble.verifyAnswer(currentTextBox.value);
-        currentTextBox.value = '';
-        currentDailyDouble = false;
-      }
-    })
-  })
-}
-
 function closeBigScreen() {
   document.querySelector('.big-screen').classList.remove('ask-question');
 }
@@ -97,31 +125,6 @@ function populateGameBoard(roundCategories, questionBoxValues) {
   questionBoxes.forEach(questionBox => {
     questionBox.innerText = questionBoxValues.splice(-1);
   })
-}
-
-function whosTurn() {
-  const answerBoxes = document.querySelectorAll('.answer');
-  answerBoxes.forEach((answerBox) => {
-    answerBox.classList.remove('your-turn')
-  });
-  playerDisplayBox('answer', 'up', game.currentPlayer.slice(-1));
-}
-
-function updateRoundCounter() {
-  let roundCounter = document.querySelector('.right-light');
-  roundCounter.innerText = `Round ${game.currentRound}`;
-}
-
-function updatePlayerScore() {
-  document.querySelector('.p1-score').innerText = player1.score;
-  document.querySelector('.p2-score').innerText = player2.score;
-  document.querySelector('.p3-score').innerText = player3.score;
-}
-
-function setPlayerNames() {
-  document.querySelector('.p1-name').innerText = player1.name;
-  document.querySelector('.p2-name').innerText = player2.name;
-  document.querySelector('.p3-name').innerText = player3.name;
 }
 
 function bigScreenRound3() {

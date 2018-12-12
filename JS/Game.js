@@ -52,21 +52,6 @@ class Game {
     }
   };
   
-  checkTilesLeft() {
-    this.tilesLeft--;
-    if (game.tilesLeft === 0) {
-      this.tilesLeft = 16;
-      this.currentRound++;
-      updateRoundCounter();
-      if (this.currentRound === 3) {
-        this.setRound3();
-        updateRoundCounter();
-      }else{
-        this.setGameBoard();
-      }
-    }
-  };
-  
   rightAnswer(wager) {
     this.peopleGone = 0;
     const pointsToAdd = parseInt(wager) || (currentQuestion.currentPointValue * this.currentRound);
@@ -105,7 +90,22 @@ class Game {
     whosTurn();
     updatePlayerScore();  
   };
-  
+
+  checkTilesLeft() {
+    this.tilesLeft--;
+    if (game.tilesLeft === 0) {
+      this.tilesLeft = 16;
+      this.currentRound++;
+      updateRoundCounter();
+      if (this.currentRound === 3) {
+        this.setRound3();
+        updateRoundCounter();
+      } else {
+        this.setGameBoard();
+      }
+    }
+  };
+
   setRound3() {
     currentQuestion = new Question(0, this.manipulatedQuestionObj, this.currentRound);
     document.querySelector('.big-screen-back').innerText = this.manipulatedQuestionObj.Round3Categories[0].name;
