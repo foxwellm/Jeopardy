@@ -26,6 +26,15 @@ function DDOperations() {
   bigScreenAskQuestion(currentDailyDouble.currentQuestion);
 }
 
+function round3Operations() {
+  playerDisplayBox('wager','down', 1,2,3);
+  playerDisplayBox('answer','down', 1,2,3);
+  playerDisplayBox('answer', 'up', 1,2,3);
+  closeBigScreen();
+  bigScreenAskQuestion(currentDailyDouble.currentQuestion);
+
+}
+
 function bigScreenAskQuestion(asking) {
   document.querySelector('.big-screen-back').innerText = asking;
   document.querySelector('.big-screen').classList.add('ask-question');
@@ -98,6 +107,10 @@ function whosTurn() {
   playerDisplayBox('answer', 'up', game.currentPlayer.slice(-1));
 }
 
+function updateRoundCounter() {
+  let roundCounter = document.querySelector('.right-light');
+  roundCounter.innerText = `Round ${game.currentRound}`;
+}
 
 function updatePlayerScore() {
   document.querySelector('.p1-score').innerText = player1.score;
@@ -111,10 +124,12 @@ function setPlayerNames() {
   document.querySelector('.p3-name').innerText = player3.name;
 };
 
-// function bigScreenRound3() {
-//   bigScreen.classList.add('ask-question');
-//   bigScreen.classList.add('round-3-big-screen');
-// };
+function bigScreenRound3() {
+  document.querySelector('.big-screen').classList.add('ask-question');
+  document.querySelector('.big-screen').classList.add('round-3-big-screen');
+  currentDailyDouble = new DailyDouble(0, game.manipulatedQuestionObj, game.currentRound,game.currentPlayer);
+  createWagerBtnInputListeners();
+};
 
 // TESTING
 

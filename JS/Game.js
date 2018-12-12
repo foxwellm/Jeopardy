@@ -4,7 +4,7 @@ class Game {
     this.manipulatedQuestionObj = manipulatedQuestionObj;
     this.currentRound = 1;
     this.currentPlayer = 'player1';
-    this.tilesLeft = 16;
+    this.tilesLeft = 1;
     this.peopleGone = 0;
     this.DDround1 = 0;
     this.DDround2 = [0,0]
@@ -17,7 +17,8 @@ class Game {
     setPlayerNames();
     updatePlayerScore();
     this.createDD()
-    whosTurn()
+    whosTurn();
+    updateRoundCounter();
   };
   
   setGameBoard() {
@@ -54,10 +55,12 @@ class Game {
   checkTilesLeft() {
     this.tilesLeft--;
     if (game.tilesLeft === 0) {
-      this.tilesLeft = 16;
+      this.tilesLeft = 1;
       this.currentRound++;
+      updateRoundCounter();
       if (this.currentRound === 3) {
         this.setRound3();
+        updateRoundCounter();
       }else{
         this.setGameBoard();
       }
@@ -105,12 +108,14 @@ class Game {
   
   setRound3() {
     currentQuestion = new Question(0, this.manipulatedQuestionObj, this.currentRound);
-    bigScreenBack.innerText = this.manipulatedQuestionObj.Round3Categories[0].name;
+    document.querySelector('.big-screen-back').innerText = this.manipulatedQuestionObj.Round3Categories[0].name;
     bigScreenRound3();
     playerDisplayBox('wager', 'up', 1, 2, 3);
   };
   
 };
+
+
 
 
 
