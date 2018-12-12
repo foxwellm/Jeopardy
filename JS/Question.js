@@ -13,10 +13,11 @@ class Question {
   }
 
   verifyAnswer(playerGuess) {
+    const currentDDWager = currentDailyDouble.currentWager || undefined;
     if(playerGuess === this.currentAnswer) {
-      game.rightAnswer();
+      game.rightAnswer(currentDDWager);
     }else {
-      game.wrongAnswer();
+      game.wrongAnswer(currentDDWager);
         }
       }   
   } 
