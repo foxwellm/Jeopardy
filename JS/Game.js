@@ -11,14 +11,17 @@ class Game {
   }
   
   init() {
-    createQuestionBoxListeners();
-    createPlayerInputListeners();
-    this.setGameBoard();
+    // createQuestionBoxListeners();
+    // createPlayerInputListeners();
+    // this.setGameBoard();
     setPlayerNames();
-    updateDomPlayerScore();
-    this.createDD()
-    whosTurn();
-    updateRoundCounter();
+    // updateDomPlayerScore();
+    // this.createDD()
+    // whosTurn();
+    // updateRoundCounter();
+    
+    currentRound3 = new Round3(gameQuestions.Round3Categories, gameQuestions.Round3Questions)
+
   }
   
   setGameBoard() {
@@ -103,8 +106,9 @@ class Game {
       this.currentRound++;
       updateRoundCounter();
       if (this.currentRound === 3) {
-        this.setRound3();
-        updateRoundCounter();
+        // this.setRound3();
+        // updateRoundCounter();
+        currentRound3 = new Round3(this.manipulatedQuestionObj[Round3Categories], this.manipulatedQuestionObj[Round3Questions])
       } else {
         this.setGameBoard();
       }

@@ -7,6 +7,7 @@ let player3;
 let game;
 let currentQuestion;
 let currentDailyDouble;
+let currentRound3;
 
 startBtn.addEventListener('click', startGame);
 resetBtn.addEventListener('click', resetGame);
