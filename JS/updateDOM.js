@@ -61,7 +61,6 @@ function askQuestion(event) {
     (game.currentRound === 2 && (currentQuestionID == game.DDround2[0])) ||
     (game.currentRound === 2 && (currentQuestionID == game.DDround2[1]))) {
     currentDailyDouble = new DailyDouble(event.target.dataset.questionid, game.manipulatedQuestionObj, game.currentRound, game.currentPlayer);
-    debugger
     bigScreenAskQuestion(currentDailyDouble.currentCategory.name)
     createWagerBtnInputListeners();
     playerDisplayBox('wager', 'up', game.currentPlayer.slice(-1));
