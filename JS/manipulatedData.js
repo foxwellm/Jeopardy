@@ -1,9 +1,9 @@
-
 const ObjKeys = Object.keys(data)
 const catKeys = Object.entries(data.categories)
+
 let arrayOfPotentialCategories = catKeys.map(category => {
   return { name: category[0], id: category[1] };
-});
+})
 
 function shuffleArray(array) {
   for (let i = array.length - 1; i > 0; i--) {
@@ -55,4 +55,4 @@ const gameQuestions = {
   Round2Questions: getRoundQuestions(arrayOfPotentialCategories.splice(-4)),
   Round3Categories: (arrayOfPotentialCategories.slice(-1)),
   Round3Questions: getFinalRoundQuestion(arrayOfPotentialCategories.splice(-1))
-};
+}

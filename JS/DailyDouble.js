@@ -21,6 +21,6 @@ class DailyDouble extends Question {
   }
 }
 
-if (typeof module.exports !== 'undefined') {
-  module.exports = DailyDouble;
-}
+// if (typeof module.exports !== 'undefined') {
+//   module.exports = DailyDouble;
+// }
