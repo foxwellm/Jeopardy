@@ -10,6 +10,6 @@ class Player {
   }
 }
 
-if (typeof module.exports !== 'undefined') {
+if (typeof module !== 'undefined') {
   module.exports = Player;
 }
