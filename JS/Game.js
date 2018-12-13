@@ -90,6 +90,7 @@ class Game {
     } 
     if (wager) {
       closeBigScreen();
+      this.checkTilesLeft();
     }
     whosTurn();
     updateDomPlayerScore();  
