@@ -4,7 +4,7 @@ class DailyDouble extends Question {
     super(questionBoxId, manipulatedQuestionObj, currentRound)
 
     this.currentPlayer = currentPlayer;
-    this.currentCategory = manipulatedQuestionObj["Round1Categories"].find(category => {
+    this.currentCategory = manipulatedQuestionObj[`Round${currentRound}Categories`].find(category => {
       return category.id === this.currentCategoryId
     })
     this.isDDRunning = true;
