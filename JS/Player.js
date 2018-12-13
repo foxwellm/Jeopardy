@@ -10,6 +10,6 @@ class Player {
   }
 }
 
-// if (typeof module.exports !== 'undefined') {
-//   module.exports = Player;
-// }
+if (typeof module.exports !== 'undefined') {
+  module.exports = Player;
+}

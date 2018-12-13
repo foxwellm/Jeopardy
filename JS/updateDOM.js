@@ -146,6 +146,6 @@ function closeBigScreenTest() {
   game.checkTilesLeft();
 }
 
-// if (typeof module.exports !== 'undefined') {
-//   module.exports = updateDOM;
-// }
+if (typeof module.exports !== 'undefined') {
+  module.exports = updateDOM;
+}
