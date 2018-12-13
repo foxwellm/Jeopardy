@@ -21,6 +21,6 @@ class Question {
       }   
   } 
 
-  if (typeof module.exports !== 'undefined') {
-    module.exports = Question
-  }
+  // if (typeof module.exports !== 'undefined') {
+  //   module.exports = Question
+  // }

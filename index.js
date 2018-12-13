@@ -1,10 +1,5 @@
-const indexMethods = {
-  startGame
-}
-
-
-
 const startBtn = document.querySelector('.start-btn');
+const resetBtn = document.querySelector('.reset-btn');
 const p1Radio = document.querySelectorAll('.p1radio'); 
 let player1;
 let player2;
@@ -14,6 +9,7 @@ let currentQuestion;
 let currentDailyDouble;
 
 startBtn.addEventListener('click', startGame);
+resetBtn.addEventListener('click', resetGame);
 
 function startGame() {
   closeStartMenu();  
@@ -30,6 +26,6 @@ function startGame() {
   game.init();
 }
 
-if (typeof module !== 'undefined') {
-  module.exports = indexMethods;
+function resetGame() {
+  openStartMenu();
 }
