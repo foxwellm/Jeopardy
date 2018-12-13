@@ -24,9 +24,9 @@ class Game {
   setGameBoard() {
     let questionBoxesPointArray = [];
     let differentPointValues = [100, 200, 300, 400].reverse();
-    for (let i= 0; i< 4; i++) {  
+    for (let i = 0; i < 4; i++) {  
       differentPointValues.forEach(pointValue => {
-        questionBoxesPointArray.push(pointValue*this.currentRound);
+        questionBoxesPointArray.push(pointValue * this.currentRound);
       })
     }
     const roundCategories = this.manipulatedQuestionObj[`Round${this.currentRound}Categories`].map(category => {
@@ -41,16 +41,16 @@ class Game {
     DD = Math.floor(Math.random() * (15 - 1)) + 0;
     this.DDround2[0] = DD;
     this.createRandom();
-  };
+  }
   
   createRandom() {
     let DD2 = Math.floor(Math.random() * (15 - 1)) + 0;
-    if (DD2 === this.DDround2[0]){
+    if (DD2 === this.DDround2[0]) {
       this.createRandom();
     } else {
       this.DDround2[1] = DD2;
     }
-  };
+  }
   
   rightAnswer(wager) {
     this.peopleGone = 0;
@@ -70,25 +70,25 @@ class Game {
   
   wrongAnswer(wager) {
     const pointsToAdd = -(wager || (currentQuestion.currentPointValue * this.currentRound));
-    if(!wager) {
+    if (!wager) {
       this.peopleGone++;
     }
     if (this.currentPlayer === 'player1') {
-      player1.updatePlayerScore(pointsToAdd);;
+      player1.updatePlayerScore(pointsToAdd);
       this.currentPlayer = 'player2';
     } else if (this.currentPlayer === 'player2') {
-      player2.updatePlayerScore(pointsToAdd);;
+      player2.updatePlayerScore(pointsToAdd);
       this.currentPlayer = 'player3';
     } else {
-      player3.updatePlayerScore(pointsToAdd);;
+      player3.updatePlayerScore(pointsToAdd);
       this.currentPlayer = 'player1';
     }
-    if (this.peopleGone > 2){
+    if (this.peopleGone > 2) {
       closeBigScreen();
       this.checkTilesLeft();
       this.peopleGone = 0;
     } 
-    if(wager) {
+    if (wager) {
       closeBigScreen();
     }
     whosTurn();
