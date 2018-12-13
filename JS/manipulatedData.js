@@ -10,20 +10,20 @@ function shuffleArray(array) {
     const j = Math.floor(Math.random() * (i + 1));
     [array[i], array[j]] = [array[j], array[i]];
   }
-};
+}
 
 function removeCamelCase(arrayOfPotentialCategories) {
   arrayOfPotentialCategories.forEach(category => {
-   let text = category.name 
-   let result = text.replace( /([A-Z])/g, " $1" );
-   category.name = result.charAt(0).toUpperCase() + result.slice(1);
+    let text = category.name 
+    let result = text.replace( /([A-Z])/g, " $1" );
+    category.name = result.charAt(0).toUpperCase() + result.slice(1);
   })
   return arrayOfPotentialCategories;
 }
 
 removeCamelCase(arrayOfPotentialCategories)
 
-shuffleArray(arrayOfPotentialCategories);
+shuffleArray(arrayOfPotentialCategories)
 
 function getRoundQuestions(categories) {
   roundQuestions = categories.reduce((array, category) => {
@@ -37,7 +37,7 @@ function getRoundQuestions(categories) {
     return array;
   }, [])
   return roundQuestions;
-};
+}
 
 function getFinalRoundQuestion(category) {
   finalQuestion = data.clues.filter(clue => {
@@ -46,7 +46,7 @@ function getFinalRoundQuestion(category) {
   
   shuffleArray(finalQuestion);
   return [finalQuestion[0]];
-};
+}
 
 const gameQuestions = {
   Round1Categories: (arrayOfPotentialCategories.slice(-4)),

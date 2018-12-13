@@ -3,13 +3,13 @@ class Player {
     this.name = name;
     this.human = human;
     this.score = score;
-
+    
   }
-      updatePlayerScore(pointsToAdd) {
-        this.score += pointsToAdd
+  updatePlayerScore(pointsToAdd) {
+    this.score += pointsToAdd
   }
 }
 
-// if (typeof module.exports !== 'undefined') {
-//   module.exports = Player;
-// }
+if (typeof module.exports !== 'undefined') {
+  module.exports = Player;
+}

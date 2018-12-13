@@ -10,17 +10,17 @@ class Question {
     this.currentCategoryId = this.currentQuestionSet.categoryId;
     
   }
-
+  
   verifyAnswer(playerGuess) {
     const currentDDWager = (this.currentWager || undefined);
-    if(playerGuess === this.currentAnswer) {
+    if (playerGuess === this.currentAnswer) {
       game.rightAnswer(currentDDWager);
     } else {
       game.wrongAnswer(currentDDWager);
-        }
-      }   
-  } 
+    }
+  }   
+} 
 
-  // if (typeof module.exports !== 'undefined') {
-  //   module.exports = Question
-  // }
+if (typeof module.exports !== 'undefined') {
+  module.exports = Question
+}

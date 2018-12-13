@@ -7,7 +7,7 @@ class Game {
     this.tilesLeft = 16;
     this.peopleGone = 0;
     this.DDround1 = 0;
-    this.DDround2 = [0,0]
+    this.DDround2 = [0, 0]
   }
   
   init() {
@@ -19,21 +19,21 @@ class Game {
     this.createDD()
     whosTurn();
     updateRoundCounter();
-  };
+  }
   
   setGameBoard() {
     let questionBoxesPointArray = [];
-    let differentPointValues = [100,200,300,400].reverse();
-    for(let i=0; i<4; i++) {  
+    let differentPointValues = [100, 200, 300, 400].reverse();
+    for (let i= 0; i< 4; i++) {  
       differentPointValues.forEach(pointValue => {
         questionBoxesPointArray.push(pointValue*this.currentRound);
       })
-    };
+    }
     const roundCategories = this.manipulatedQuestionObj[`Round${this.currentRound}Categories`].map(category => {
       return category.name
     }).reverse();
-    populateGameBoard(roundCategories,questionBoxesPointArray);
-  };
+    populateGameBoard(roundCategories, questionBoxesPointArray);
+  }
   
   createDD() {
     let DD = Math.floor(Math.random() * (15 - 1)) + 0;
@@ -70,7 +70,9 @@ class Game {
   
   wrongAnswer(wager) {
     const pointsToAdd = -(wager || (currentQuestion.currentPointValue * this.currentRound));
-    if(!wager) this.peopleGone++;
+    if(!wager) {
+      this.peopleGone++;
+    }
     if (this.currentPlayer === 'player1') {
       player1.updatePlayerScore(pointsToAdd);;
       this.currentPlayer = 'player2';
@@ -86,10 +88,12 @@ class Game {
       this.checkTilesLeft();
       this.peopleGone = 0;
     } 
-    if(wager) closeBigScreen();
+    if(wager) {
+      closeBigScreen();
+    }
     whosTurn();
     updateDomPlayerScore();  
-  };
+  }
 
   checkTilesLeft() {
     this.tilesLeft--;
@@ -104,16 +108,16 @@ class Game {
         this.setGameBoard();
       }
     }
-  };
+  }
 
   setRound3() {
-    currentQuestion = new Question(0, this.manipulatedQuestionObj, this.currentRound);
-    document.querySelector('.big-screen-back').innerText = this.manipulatedQuestionObj.Round3Categories[0].name;
+    currentQuestion = new Question(0, this.manipulatedQuestionObj, this.currentRound)
+    document.querySelector('.big-screen-back').innerText = this.manipulatedQuestionObj.Round3Categories[0].name
     bigScreenRound3();
     playerDisplayBox('wager', 'up', 1, 2, 3);
-  };
-};
+  }
+}
 
-// if(typeof module.exports !== 'undefined') {
-//   module.exports = Game;
-// }
+if(typeof module.exports !== 'undefined') {
+  module.exports = Game;
+}
