@@ -3,10 +3,10 @@ class Player {
     this.name = name;
     this.human = human;
     this.score = score;
-
+    
   }
-      updatePlayerScore(pointsToAdd) {
-        this.score += pointsToAdd
+  updatePlayerScore(pointsToAdd) {
+    this.score += pointsToAdd
   }
 }
 

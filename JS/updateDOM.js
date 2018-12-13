@@ -97,7 +97,7 @@ function round3Operations() {
   playerDisplayBox('answer', 'up', 1, 2, 3);
   closeBigScreen();
   bigScreenAskQuestion(currentDailyDouble.currentQuestion);
-
+  
 }
 
 function bigScreenAskQuestion(asking) {
