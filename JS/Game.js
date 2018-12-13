@@ -112,7 +112,6 @@ class Game {
     bigScreenRound3();
     playerDisplayBox('wager', 'up', 1, 2, 3);
   };
-  
 };
 
 
