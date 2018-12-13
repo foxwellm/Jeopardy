@@ -8,9 +8,7 @@ global.Game = require('../JS/Game.js');
 global.testData = require('../tests/testData.js');
 global.Player = require('../JS/Player.js');
 
-
-
-describe('verifyAnswer', function () {
+describe('Question', function () {
 
   beforeEach(function () {
     currentQuestion = new Question(0, testData, 1);
@@ -23,7 +21,7 @@ describe('verifyAnswer', function () {
     expect(player1.score).to.equal(100);
   })
 
-  it('Should add the approptiate points', function () {
+  it('Should subtract the approptiate points', function () {
     game.wrongAnswer(100);
     expect(player1.score).to.equal(-100);
   })
