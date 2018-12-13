@@ -69,7 +69,7 @@ function askQuestion(event) {
   }
   const boxToDisable = event.target.closest('.question-box');
   boxToDisable.innerText = '';
-  boxToDisable.removeEventListener('click', askQuestion);
+  document.querySelector('.question-box-' + currentQuestionID).disabled = true;
 }
 
 function playerDisplayBox(type, direction, ...boxes) {
@@ -134,16 +134,6 @@ function bigScreenRound3() {
   document.querySelector('.big-screen').classList.add('round-3-big-screen');
   currentDailyDouble = new DailyDouble(0, game.manipulatedQuestionObj, game.currentRound, game.currentPlayer);
   createWagerBtnInputListeners();
-}
-
-// TESTING
-
-const closeBigScreenBtn = document.querySelector('.close-big-screen');
-closeBigScreenBtn.addEventListener('click', closeBigScreenTest);
-
-function closeBigScreenTest() {
-  document.querySelector('.big-screen').classList.remove('ask-question');
-  game.checkTilesLeft();
 }
 
 if (typeof module.exports !== 'undefined') {
