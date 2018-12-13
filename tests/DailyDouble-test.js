@@ -9,14 +9,14 @@ describe('DailyDouble', function () {
   var currentDailyDouble;
   beforeEach(function () {
     currentDailyDouble = new DailyDouble(0, testData, 1, 'player1');
-   });
-
-   it('Should verify current player', function () {
+  });
+  
+  it('Should verify current player', function () {
     expect(currentDailyDouble.currentPlayer).to.equal('player1');
   });
-
+  
   it('Should verify current category', function () {
     expect(currentDailyDouble.currentCategory).to.deep.equal({name: "Name That Board Game", id: 5});
   });
-
+  
 });
