@@ -4,7 +4,7 @@
 
 The assignment for Front End Engineering Class 1810, Module 2, at Turing School of Software and Design was to create a modified version of 'Jeopardy' using HTML, CSS, and Javascript. It should also use a testing suite using Mocha and Chai, as well as demonstrate Object Oriented Programming and Class principles. The design should include three players and two rounds, including a 'Daily Double' special state. 
 
-![](header.png)
+<img width="1675" alt="jeopardy" src="https://user-images.githubusercontent.com/38082195/49919773-0727c900-fe65-11e8-8cf8-2a9aa6630f3a.png">
 
 ## Installation
 
