@@ -1,14 +1,12 @@
 const chai = require('chai');
 const expect = chai.expect;
-const Player = require('../JS/Player.js');
-// const spies = require('chai-spies')
-// chai.use(spies);
-// global.updateDOM = require('../JS/updateDOM.js');
-// chai.spy.on(global.updateDOM, ['closeStartMenu', 'createQuestionBoxListeners'], () => true);
-// const indexMethods = require('../index.js');
-const Game = require('../JS/Game.js');
-// global.Question = require('../JS/Question.js');
-// const DailyDouble = require('../JS/DailyDouble.js');
+const spies = require('chai-spies')
+chai.use(spies);
+chai.spy.on(global, ['whosTurn', 'closeBigScreen', 'updateDomPlayerScore'], () => true);
+global.Question = require('../JS/Question.js');
+global.Game = require('../JS/Game.js');
+global.testData = require('../tests/testData.js');
+global.Player = require('../JS/Player.js');
 
 describe('Make a player', function () {
   let player;

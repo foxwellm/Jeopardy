@@ -1,3 +1,6 @@
+
+
+
 function closeStartMenu() {
   document.querySelector('.start-screen').classList.add('start-game');
 }
