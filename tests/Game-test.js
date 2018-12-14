@@ -15,6 +15,10 @@ describe('Game', function () {
     game = new Game(testData);
     player1 = new Player(true, 'Tom', 0);
   })
+
+  afterEach(function () {
+    //chai.spies.restore()
+  })
   
   it('Should get manipulated game object', function () {
     expect(game.manipulatedQuestionObj).to.equal(testData);

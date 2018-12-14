@@ -20,7 +20,8 @@ class Game {
     // whosTurn();
     // updateRoundCounter();
     
-    currentRound3 = new Round3(gameQuestions.Round3Categories, gameQuestions.Round3Questions)
+    currentRound3 = new Round3(gameQuestions.Round3Categories, gameQuestions.Round3Questions);
+    currentRound3.init();
 
   }
   
