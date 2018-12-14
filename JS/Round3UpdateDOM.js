@@ -10,8 +10,9 @@ const round3UpdateDOM = {
     const wagerBtns = document.querySelectorAll('.wager-btn');
     wagerBtns.forEach(function (button) {
       button.addEventListener('click', function () {
-        currentRound3.collectWagers();
-        currentTextBox.value = '';
+        const playerWagering = event.target.previousSibling.previousSibling.classList.value;
+        const playerWager = event.target.previousSibling.previousSibling.value;
+        currentRound3.collectWagers(playerWagering, playerWager);
       })
     })
   },
@@ -31,11 +32,20 @@ const round3UpdateDOM = {
     const answerBtns = document.querySelectorAll('.answer-btn');
     answerBtns.forEach(function (button) {
       button.addEventListener('click', function () {
-        const currentTextBox = event.target.previousElementSibling;       
-        currentRound3.checkAnswer(currentTextBox.value);
-        currentTextBox.value = '';
+        const playerGuessing = event.target.previousElementSibling.classList[1];
+        const playerGuess = event.target.previousElementSibling.value;
+        currentRound3.logAnswer(playerGuessing, playerGuess);
       })
-    })
-    
+    })   
+  },
+  
+  updatePlayerScore() {
+    document.querySelector('.p1-score').innerText = player1.score;
+    document.querySelector('.p2-score').innerText = player2.score;
+    document.querySelector('.p3-score').innerText = player3.score;
   }
+}
+
+if (typeof module !== 'undefined') {
+  module.exports = round3UpdateDOM;
 }

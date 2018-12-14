@@ -48,7 +48,7 @@ testData = {
     {question: "This 1862 act gave American citizens 160 acres of …ey'd live on it for at least 5 years & improve it", pointValue: 400, answer: "The Homestead Act", categoryId: 1}
   ],
   Round3Categories: [{name: "Life Sciences", id: 2}],
-  Round3Questions: [{question: "Alimentary, my dear! waves of contractions moving …llowed food through the esophagus are called this", answer: "peristalsis", pointValue: 400, categoryId: 2}]
+  Round3Questions: [{question: "Alimentary, my dear! waves of contractions moving food through the esophagus are called this", answer: "peristalsis", pointValue: 400, categoryId: 2}]
 }
 
 if (typeof module !== 'undefined') {

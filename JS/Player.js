@@ -6,7 +6,7 @@ class Player {
     
   }
   updatePlayerScore(pointsToAdd) {
-    this.score += pointsToAdd
+    this.score += parseInt(pointsToAdd)
   }
 }
 

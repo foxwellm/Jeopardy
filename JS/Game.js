@@ -15,7 +15,7 @@ class Game {
     // createPlayerInputListeners();
     // this.setGameBoard();
     setPlayerNames();
-    // updateDomPlayerScore();
+    updateDomPlayerScore();
     // this.createDD()
     // whosTurn();
     // updateRoundCounter();
