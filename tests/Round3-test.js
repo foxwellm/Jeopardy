@@ -42,7 +42,7 @@ describe('Round3', function () {
     expect(currentRound3.playersGuessed).to.deep.equal([0, 0, 0]);
   })
 
-  it.skip('Should initiate approriate DOM elements when round 3 starts', function () {
+  it('Should initiate approriate DOM elements when round 3 starts', function () {
     currentRound3.init()
     expect(round3UpdateDOM.bigScreenR3AskQuestion).to.have.been.called(1);
     expect(round3UpdateDOM.playerDisplayBox).to.have.been.called(1);

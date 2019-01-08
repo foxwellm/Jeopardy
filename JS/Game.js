@@ -11,18 +11,14 @@ class Game {
   }
   
   init() {
-    // createQuestionBoxListeners();
-    // createPlayerInputListeners();
-    // this.setGameBoard();
+    createQuestionBoxListeners();
+    createPlayerInputListeners();
+    this.setGameBoard();
     setPlayerNames();
     updateDomPlayerScore();
-    // this.createDD()
-    // whosTurn();
-    // updateRoundCounter();
-    
-    currentRound3 = new Round3(gameQuestions.Round3Categories, gameQuestions.Round3Questions);
-    currentRound3.init();
-
+    this.createDD()
+    whosTurn();
+    updateRoundCounter();
   }
   
   setGameBoard() {
@@ -117,10 +113,12 @@ class Game {
   }
 
   setRound3() {
-    currentQuestion = new Question(0, this.manipulatedQuestionObj, this.currentRound)
-    document.querySelector('.big-screen-back').innerText = this.manipulatedQuestionObj.Round3Categories[0].name
-    bigScreenRound3();
-    playerDisplayBox('wager', 'up', 1, 2, 3);
+    // currentQuestion = new Question(0, this.manipulatedQuestionObj, this.currentRound)
+    // document.querySelector('.big-screen-back').innerText = this.manipulatedQuestionObj.Round3Categories[0].name
+    // bigScreenRound3();
+    // playerDisplayBox('wager', 'up', 1, 2, 3);
+    currentRound3 = new Round3(gameQuestions.Round3Categories, gameQuestions.Round3Questions);
+    currentRound3.init();
   }
 }
 
